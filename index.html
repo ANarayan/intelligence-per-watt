@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTELLIGENCE_PER_WATT</title>
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            font-size: 15px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 80px;
+        }
+
+        @media (max-width: 800px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+
+        /* --- HEADER --- */
+        header {
+            margin-bottom: 80px;
+            border-bottom: 4px solid #000;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .meta-data {
+            text-align: right;
+            font-size: 11px;
+            text-transform: uppercase;
+            line-height: 1.5;
+            font-weight: bold;
+        }
+
+        /* --- NAVIGATION --- */
+        nav ul {
+            list-style: none;
+            position: sticky;
+            top: 40px;
+        }
+
+        nav li {
+            margin-bottom: 12px;
+        }
+
+        nav a {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            margin-bottom: 120px;
+        }
+
+        /* THE "STAMP" HEADER STYLE (H2) */
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            background: #000;
+            color: #fff;
+            display: inline-block;
+            padding: 10px 15px;
+            margin-bottom: 40px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        /* NEW STYLE FOR SUB-POINTS (H3) -> DATA BLOCKS */
+        h3 {
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            background: #eee; /* Light grey block */
+            padding: 15px;
+            border-left: 5px solid #000; /* Heavy accent line */
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            max-width: 720px;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .manifesto-text {
+            font-weight: 800;
+            font-size: 20px;
+            margin: 40px 0;
+            line-height: 1.3;
+            border-left: 5px solid #000;
+            padding-left: 20px;
+        }
+
+        /* --- UNIVERSAL CARD GRID (USED FOR AGENDA & WORK) --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px; /* Distinct gaps */
+        }
+
+        .info-card {
+            border: 2px solid #000;
+            background: #fff;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-card:hover {
+            box-shadow: 8px 8px 0px #000; /* Pop-out shadow effect */
+            transform: translate(-4px, -4px);
+        }
+        
+        .card-header {
+            padding: 15px;
+            border-bottom: 2px solid #000;
+            font-weight: 800;
+            font-size: 11px;
+            background: #eee; /* Grey header bar */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        .card-links {
+            margin-top: 25px;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* --- RELATED WORKS --- */
+        .related-section {
+            margin-bottom: 40px;
+            border-left: 1px solid #000;
+            padding-left: 20px;
+        }
+
+        .related-title {
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            background: #000;
+            color: #fff;
+            display: inline-block;
+            padding: 2px 5px;
+        }
+
+        .related-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .related-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .related-list li a::before {
+            content: "+ ";
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: 150px;
+            padding-top: 20px;
+            border-top: 4px solid #000;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Section Container Styling (for context) */
+    #agenda {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    #agenda h2 {
+        background-color: #000;
+        color: #fff;
+        padding: 10px 20px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        font-size: 1.2rem;
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    /* Table Styling */
+    .research-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-top: 2px solid #000;
+        margin-top: 10px;
+    }
+
+    .research-table th {
+        text-align: left;
+        padding: 15px;
+        background-color: #f9f9f9;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        border-bottom: 1px solid #ddd;
+        color: #555;
+    }
+
+    .research-table td {
+        padding: 20px 15px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+
+    /* Column Specifics */
+    .col-category {
+        width: 20%;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: #888;
+        letter-spacing: 0.5px;
+        line-height: 1.4;
+    }
+
+    .col-initiative {
+        width: 30%;
+        font-weight: 700;
+        font-size: 1rem;
+        color: #000;
+    }
+
+    .col-desc {
+        width: 50%;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #444;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .research-table thead {
+            display: none;
+        }
+
+        .research-table, .research-table tbody, .research-table tr, .research-table td {
+            display: block;
+            width: 100%;
+        }
+
+        .research-table tr {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+
+        .research-table td {
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .col-category {
+            padding-bottom: 0;
+            color: #aaa;
+            font-size: 0.7rem;
+        }
+
+        .col-initiative {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .col-desc {
+            padding-top: 0;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div>
+            <h1>Intelligence<br>Per Watt</h1>
+            <div class="tagline">-> A Unified Metric for the AI Era</div>
+        </div>
+        <div class="meta-data">
+            Updated: 01/07/2025<br>
+            Loc: Stanford Universtiy, CA<br>
+        </div>
+    </header>
+
+    <div class="grid">
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="#vision" onclick="smoothScroll(event, 'vision')">01. Vision</a></li>
+                    <li><a href="#agenda" onclick="smoothScroll(event, 'agenda')">02. Agenda</a></li>
+                    <li><a href="#work" onclick="smoothScroll(event, 'work')">03. Our Work</a></li>
+                    <li><a href="#related" onclick="smoothScroll(event, 'related')">04. Related</a></li>
+                    <li style="margin-top: 40px; border-top: 2px solid #000; padding-top: 10px;">
+                        <a href="mailto:avanika@stanford.edu">Want to chat? Email Us!</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <section id="vision">
+                <h2>01. Vision Statement</h2>
+                <p>
+                    From 1946 to 2009, computing efficiency—performance per watt—doubled every 1.5 years. This trend, documented by Koomey and colleagues, transformed where computing could happen. Workloads migrated from mainframe rooms to desktops, then laptops, then pockets. The transition from centralized time-sharing to personal computing didn't occur because PCs surpassed mainframes in raw performance. It occurred when efficiency gains made computing capable enough within the power constraints of personal devices.
+                </p>
+                <div class="manifesto-text">
+                    We're at the same inflection point for artificial intelligence.
+                </div>
+                <p>
+                    Today, most AI queries flow through centralized datacenters while demand grows at steep rates: 1300× increases in token processing, year-over-year scaling that strains power grids. Yet telemetry shows that 77% of requests are practical tasks—writing emails, summarizing documents, seeking information—that don't require frontier-scale models.
+                </p>
+                <p>
+                    We propose <strong>INTELLIGENCE PER WATT (IPW)</strong>—task accuracy per unit of power—as a unified metric for understanding this transition. Just as performance-per-watt guided the mainframe-to-PC shift, intelligence-per-watt clarifies the path from centralized AI to distributed intelligence. IPW provides a common framework for studying three questions shaping AI's future:
+                </p>
+
+                <h3>Workload Redistribution: From Cloud to Edge</h3>
+                <p>
+                    Local language models (≤20B parameters) now accurately answer 88.7% of single-turn queries, and consumer accelerators run them at interactive latencies. IPW improved 5.3× from 2023–2025—3.1× from model advances, 1.7× from hardware gains. By measuring intelligence efficiency across the model-hardware landscape, we can identify which queries belong on which devices. Hybrid systems that route queries appropriately cut energy, compute, and cost by 60–80% while preserving quality. IPW tracks this redistribution as it unfolds.
+                </p>
+
+                <h3>Economic Value: Measuring AI's Real-World Impact</h3>
+                <p>
+                    Not all intelligence is equal. A model that handles graduate-level physics but fails at email drafting delivers different economic value than one with the opposite profile. By weighting IPW against GDP-relevant task distributions, we can quantify how much economic value AI systems generate per watt consumed. This lens reveals where current systems create value, where gaps remain, and how efficiency gains translate into productivity across economic sectors.
+                </p>
+
+                <h3>National Competitiveness: The Global AI Race</h3>
+                <p>
+                    The nation that most efficiently converts energy into deployed intelligence gains advantage. We introduce <strong>Gross Domestic Intelligence (GDI)</strong>—the product of intelligence-per-watt and accessible power—as a framework for AI competition. China and the United States face inverse constraints: China is compute-bound by export controls on advanced chips; America is energy-bound by grid limitations and datacenter bottlenecks. IPW reveals an asymmetric American asset: hundreds of millions of local accelerators already deployed in homes and offices. This installed base could boost effective AI capacity 2–4× without new datacenter construction.
+                </p>
+                
+                <p style="font-style: italic; border: 1px solid #000; padding: 20px; margin-top: 40px;">
+                    The path forward: Intelligence per watt should be a north star metric for model architecture, hardware design, and national strategy. We're building the measurement infrastructure, benchmarks, and systems to make this concrete—and releasing our tools for others to use.
+                </p>
+            </section>
+
+            <section id="agenda">
+                <h2>02. The IPW Research Agenda</h2>
+                <p style="margin-bottom: 30px;">We're pursuing a coordinated research program to understand and maximize intelligence efficiency across the full stack.</p>
+                
+                <table class="research-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Initiative</th>
+                            <th>Objective</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-category">Measurement &<br>Benchmarking</td>
+                            <td class="col-initiative">GDP-Weighted Evaluation</td>
+                            <td class="col-desc">Quantifying economic value generated per watt on real-world, GDP-relevant tasks.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Measurement &<br>Benchmarking</td>
+                            <td class="col-initiative">IPW Attribution</td>
+                            <td class="col-desc">Decomposing efficiency gains into algorithmic versus hardware contributions through continuous benchmarking.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">National<br>Competitiveness</td>
+                            <td class="col-initiative">Gross Domestic Intelligence</td>
+                            <td class="col-desc">Identifying high-impact interventions across inference systems, power grids, and model architectures.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Models &<br>Systems</td>
+                            <td class="col-initiative">Post-training for IPW</td>
+                            <td class="col-desc">Training local models to use frontier models as tools for verification and sophisticated assistance.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-category">Models &<br>Systems</td>
+                            <td class="col-initiative">Hybrid Inference Engine</td>
+                            <td class="col-desc">Building systems that automatically route work between local and cloud compute to maximize IPW subject to latency, privacy, and cost constraints.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- <section id="agenda">
+                <h2>02. The IPW Research Agenda</h2>
+                <p style="margin-bottom: 30px;">We're pursuing a coordinated research program to understand and maximize intelligence efficiency across the full stack.</p>
+                
+                <div class="card-grid">
+                    <div class="info-card">
+                        <div class="card-header">MEASUREMENT & BENCHMARKING</div>
+                        <div class="card-body">
+                            <span class="card-title">GDP-Weighted Evaluation</span>
+                            <div class="card-desc">Quantifying economic value generated per watt on real-world, GDP-relevant tasks.</div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-header">MEASUREMENT & BENCHMARKING</div>
+                        <div class="card-body">
+                            <span class="card-title">IPW Attribution</span>
+                            <div class="card-desc">Decomposing efficiency gains into algorithmic versus hardware contributions through continuous benchmarking.</div>
+                        </div>
+                    </div>
+
+                     <div class="info-card">
+                        <div class="card-header">NATIONAL COMPETITIVENESS</div>
+                        <div class="card-body">
+                            <span class="card-title">Gross Domestic Intelligence</span>
+                            <div class="card-desc">Identifying high-impact interventions across inference systems, power grids, and model architectures.</div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-header">MODELS & SYSTEMS</div>
+                        <div class="card-body">
+                            <span class="card-title">Post-training for IPW</span>
+                            <div class="card-desc">Training local models to use frontier models as tools for verification and sophisticated assistance.</div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-header">MODELS & SYSTEMS</div>
+                        <div class="card-body">
+                            <span class="card-title">Hybrid Inference Engine</span>
+                            <div class="card-desc">Building systems that automatically route work between local and cloud compute to maximize IPW subject to latency, privacy, and cost constraints.</div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+            <section id="work">
+                <h2>03. Our Work</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <div class="card-header">📄 PUBLICATION</div>
+                        <div class="card-body">
+                            <span class="card-title">Intelligence Per Watt: Measuring Intelligence Efficiency of Local AI</span>
+                            <div class="card-desc">
+                                Jon Saad-Falcon*, Avanika Narayan*, et al.<br><br>
+                                Introduces "intelligence per watt" (IPW) as a metric for measuring AI efficiency, finding that local LMs can answer 88.7% of single-turn reasoning & chat queries and that hybrid local-cloud routing cuts energy use by 64% and costs by 59% compared to cloud-only inference.
+                            </div>
+                            <div class="card-links">
+                                <a href="https://arxiv.org/abs/2511.07885">Paper (arXiv)</a> &nbsp;//&nbsp; <a href="https://hazyresearch.stanford.edu/blog/2025-11-11-ipw">Blog Post</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-header">📄 PUBLICATION</div>
+                        <div class="card-body">
+                            <span class="card-title">Maximizing American Gross Domestic Intelligence with Hybrid Inference</span>
+                            <div class="card-desc">
+                                Jared Dunnmon*, Avanika Narayan*, Jon Saad-Falcon*, Chris Ré<br><br>
+                                Proposes "Gross Domestic Intelligence" (GDI) as a framework for national AI competitiveness, arguing that the U.S. can boost effective inference capacity 2–4× by activating the 70–80M AI-capable devices already deployed in American homes and offices alongside cloud infrastructure.
+                            </div>
+                            <div class="card-links">
+                                <a href="https://hazyresearch.stanford.edu/blog/2025-11-28-gdi">Blog Post</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-header">📄 PUBLICATION</div>
+                        <div class="card-body">
+                            <span class="card-title">Minions: Cost-efficient Collaboration Between On-device and Cloud Language Models</span>
+                            <div class="card-desc">
+                                Avanika Narayan*, Dan Biderman*, Sabri Eyuboglu*, et al.<br><br>
+                                Introduces protocols for local-cloud LM collaboration on long-document reasoning tasks, where MinionS reduces cloud costs by 5.7× while maintaining 97.9% of frontier model accuracy by decomposing tasks into parallelizable subtasks executed locally.
+                            </div>
+                            <div class="card-links">
+                                <a href="https://arxiv.org/abs/2502.15964">Paper (arXiv)</a> &nbsp;//&nbsp; <a href="https://hazyresearch.stanford.edu/blog/2025-02-24-minions">Blog Post</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-header">🔧 CODE & TOOLS</div>
+                        <div class="card-body">
+                            <span class="card-title">IPW Profiling Harness</span>
+                            <div class="card-desc">
+                                Open-source benchmarking suite that profiles LLM inference across NVIDIA, AMD, and Apple Silicon, measuring energy consumption, power draw, latency, and throughput to compute intelligence-per-watt metrics for any model-accelerator configuration.
+                            </div>
+                            <div class="card-links">
+                                <a href="https://github.com/HazyResearch/intelligence-per-watt">GitHub Repository -></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="related">
+                <h2>04. Related Works</h2>
+                <p>A collection of resources that inform and connect to Intelligence Per Watt research.</p>
+                
+                <div class="related-section">
+                    <div class="related-title">Algorithmic Progress & Efficiency Measurement</div>
+                    <ul class="related-list">
+                        <li><a href="https://arxiv.org/abs/2311.06602">Algorithmic Progress in Language Models</a></li>
+                        <li><a href="https://www.lesswrong.com/posts/ssNSCaug5p3xnNDSd/how-fast-is-algorithmic-progress-in-ai-inference">How Fast is Algorithmic Progress in AI Inference?</a></li>
+                        <li><a href="https://epoch.ai/data-insights/llm-inference-price-trends">LLM Inference Price Trends (Epoch AI)</a></li>
+                        <li><a href="https://www.emergentmind.com/topics/compute-equivalent-gain-ceg-accounting">Compute Equivalent Gain (CEG) Accounting</a></li>
+                        <li><a href="https://arxiv.org/abs/2512.04123">Inference Efficiency Analysis</a></li>
+                        <li><a href="https://arxiv.org/pdf/2511.21622">Training Compute-Optimal Models</a></li>
+                    </ul>
+                </div>
+                
+                <div class="related-section">
+                    <div class="related-title">Energy Measurement & Benchmarking</div>
+                    <ul class="related-list">
+                        <li><a href="https://leonardo-energy.pl/wp-content/uploads/2018/03/Green_Grid_Metrics.pdf">Green Grid Metrics</a></li>
+                        <li><a href="https://ml.energy/zeus/">Zeus: ML Energy Measurement</a></li>
+                        <li><a href="https://huggingface.github.io/AIEnergyScore/">AI Energy Score (Hugging Face)</a></li>
+                        <li><a href="https://arxiv.org/pdf/2512.03024">Energy Considerations for LLM Inference</a></li>
+                        <li><a href="https://github.com/mlcommons/inference">MLCommons Inference Benchmark</a></li>
+                        <li><a href="https://github.com/mlcommons/inference_policies">MLCommons Inference Policies</a></li>
+                        <li><a href="https://arxiv.org/abs/2408.00741">LLM Energy Measurement</a></li>
+                        <li><a href="https://colab.research.google.com/github/ml-energy/tutorials/blob/master/neurips25/resources/measuring_energy.ipynb">ML Energy Measurement Tutorial</a></li>
+                    </ul>
+                </div>
+                
+                <div class="related-section">
+                    <div class="related-title">Economic Impact of AI</div>
+                    <ul class="related-list">
+                        <li><a href="https://economics.mit.edu/sites/default/files/2024-04/The%20Simple%20Macroeconomics%20of%20AI.pdf">The Simple Macroeconomics of AI (Acemoglu)</a></li>
+                        <li><a href="https://windowsontheory.org/2025/11/04/thoughts-by-a-non-economist-on-ai-and-economics/">Thoughts on AI and Economics (Boaz Barak)</a></li>
+                        <li><a href="https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic">How AI is Transforming Work at Anthropic</a></li>
+                        <li><a href="https://www.remotelabor.ai/">Remote Labor AI</a></li>
+                        <li><a href="https://andreyfradkin.com/assets/LLM_Demand_12_12_2025.pdf">LLM Labor Market Demand Analysis</a></li>
+                    </ul>
+                </div>
+                
+                <div class="related-section">
+                    <div class="related-title">Benchmarks & Evaluation</div>
+                    <ul class="related-list">
+                        <li><a href="https://huggingface.co/datasets/openai/gdpval/viewer/default/train">GDPVal Dataset</a></li>
+                        <li><a href="https://leaderboard.snorkel.ai/">Snorkel AI Leaderboard</a></li>
+                        <li><a href="https://www.kaggle.com/benchmarks/ibm-research/enterprise-ops">IBM Enterprise Ops Benchmark</a></li>
+                        <li><a href="https://arxiv.org/abs/2505.06371">APEX Benchmark</a></li>
+                    </ul>
+                </div>
+                
+                <div class="related-section">
+                    <div class="related-title">Inference Systems & Edge Computing</div>
+                    <ul class="related-list">
+                        <li><a href="https://www.usenix.org/conference/atc21/presentation/romero">INFaaS: Automated Model-less Inference</a></li>
+                        <li><a href="https://iceberg.mit.edu/">MIT Iceberg</a></li>
+                        <li><a href="https://www.cisco.com/site/us/en/products/computing/unified-edge/index.html">Cisco Unified Edge Computing</a></li>
+                        <li><a href="https://github.com/ulab-uiuc/LLMRouter">LLM Router</a></li>
+                        <li><a href="https://arxiv.org/abs/2402.16844">Efficient Inference Routing</a></li>
+                    </ul>
+                </div>
+                
+            </section>
+
+    <footer>
+        <div>&copy; Intelligence Per Watt | Hazy Research</div>
+        <div>Stanford University, CA</div>
+    </footer>
+</div>
+
+<script>
+    // Smooth scroll script
+    function smoothScroll(e, targetId) {
+        e.preventDefault();
+        const target = document.getElementById(targetId);
+        window.scrollTo({
+            top: target.offsetTop - 50, 
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+</body>
+</html>

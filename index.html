@@ -358,6 +358,102 @@
             letter-spacing: 0.1em;
         }
 
+        /* People Grid */
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .person-card {
+            text-align: center;
+            display: block;
+        }
+
+        .person-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            margin: 0 auto 15px;
+            display: block;
+        }
+
+        .person-initials {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            background: #e8e8e8;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #999;
+            font-weight: 300;
+        }
+
+        .person-name {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #000;
+            margin-bottom: 4px;
+        }
+
+        .person-role {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #777;
+        }
+
+        /* Sponsor Grid */
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .sponsor-card {
+            padding: 25px;
+            border: 1px solid #ccc;
+            background: #fff;
+            text-align: center;
+            display: block;
+        }
+
+        .sponsor-logo {
+            height: 50px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            margin: 0 auto 15px;
+            display: block;
+            max-width: 100%;
+        }
+
+        .sponsor-name {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .sponsor-desc {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.6;
+        }
+
         /* Mobile Header (hidden on desktop) */
         .mobile-header {
             display: none;
@@ -510,6 +606,15 @@
                 gap: 30px;
             }
 
+            .sponsor-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sponsor-card {
+                padding: 20px;
+            }
+
             .panel-footer {
                 flex-direction: column;
                 gap: 10px;
@@ -533,6 +638,24 @@
             h3 {
                 font-size: 11px;
                 padding: 12px;
+            }
+
+            .people-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .person-photo, .person-initials {
+                width: 90px;
+                height: 90px;
+            }
+
+            .person-initials {
+                font-size: 22px;
+            }
+
+            .person-name {
+                font-size: 11px;
             }
         }
     </style>
@@ -558,6 +681,8 @@
             <li><button class="tab-btn" data-tab="agenda">02. Agenda</button></li>
             <li><button class="tab-btn" data-tab="work">03. Our Work</button></li>
             <li><button class="tab-btn" data-tab="related">04. Related</button></li>
+            <li><button class="tab-btn" data-tab="people">05. People</button></li>
+            <li><button class="tab-btn" data-tab="sponsors">06. Sponsors</button></li>
         </ul>
 
         <div class="sidebar-footer">
@@ -793,6 +918,139 @@
 
             <div class="panel-footer">
                 <span>© Avanika Narayan & Jon Saad-Falcon </span>
+                <span>Stanford University, CA</span>
+            </div>
+        </div>
+
+        <!-- People Panel -->
+        <div id="people" class="panel">
+            <div class="section-label">05</div>
+            <h2>People</h2>
+
+            <h3>Principal Investigators</h3>
+            <div class="people-grid">
+                <a href="https://www.azaliamirhoseini.com/" class="person-card">
+                    <img src="img/people/azalia-mirhoseini.jpg" alt="Azalia Mirhoseini" class="person-photo">
+                    <div class="person-name">Azalia Mirhoseini</div>
+                    <div class="person-role">Principal Investigator</div>
+                </a>
+                <a href="https://hennessy.stanford.edu/" class="person-card">
+                    <img src="img/people/john-hennessy.jpg" alt="John Hennessy" class="person-photo">
+                    <div class="person-name">John Hennessy</div>
+                    <div class="person-role">Principal Investigator</div>
+                </a>
+                <a href="https://cs.stanford.edu/~chrismre/" class="person-card">
+                    <img src="img/people/christopher-re.jpg" alt="Christopher Ré" class="person-photo">
+                    <div class="person-name">Christopher Ré</div>
+                    <div class="person-role">Principal Investigator</div>
+                </a>
+            </div>
+
+            <h3>PhD Students</h3>
+            <div class="people-grid">
+                <a href="https://jonsaadfalcon.com/" class="person-card">
+                    <img src="img/people/jon-saad-falcon.png" alt="Jon Saad-Falcon" class="person-photo">
+                    <div class="person-name">Jon Saad-Falcon</div>
+                    <div class="person-role">PhD Student</div>
+                </a>
+                <a href="https://knight-hennessy.stanford.edu/people/avanika-narayan" class="person-card">
+                    <img src="img/people/avanika-narayan.jpg" alt="Avanika Narayan" class="person-photo">
+                    <div class="person-name">Avanika Narayan</div>
+                    <div class="person-role">PhD Student</div>
+                </a>
+            </div>
+
+            <h3>Master's Students</h3>
+            <div class="people-grid">
+                <a href="https://www.herumbshandilya.com/" class="person-card">
+                    <img src="img/people/herumb-shandilya.jpg" alt="Herumb Shandilya" class="person-photo">
+                    <div class="person-name">Herumb Shandilya</div>
+                    <div class="person-role">Master's Student</div>
+                </a>
+            </div>
+
+            <h3>Undergraduates</h3>
+            <div class="people-grid">
+                <a href="https://www.linkedin.com/in/akenginorhun/" class="person-card">
+                    <div class="person-initials">HA</div>
+                    <div class="person-name">Hakki Orhun Akengin</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+                <a href="https://www.linkedin.com/in/adrian-gamarra/" class="person-card">
+                    <div class="person-initials">AG</div>
+                    <div class="person-name">Adrian Gamarra Lafuente</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+                <a href="https://medhyagoel.github.io/" class="person-card">
+                    <div class="person-initials">MG</div>
+                    <div class="person-name">Medhya Goel</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+                <a href="#" class="person-card">
+                    <div class="person-initials">JG</div>
+                    <div class="person-name">J. Wes Griffin</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+            </div>
+
+            <h3>Industry Collaborators</h3>
+            <div class="people-grid">
+                <a href="https://jdunnmon.github.io/" class="person-card">
+                    <img src="img/people/jared-dunnmon.jpg" alt="Jared Dunnmon" class="person-photo">
+                    <div class="person-name">Jared Dunnmon</div>
+                    <div class="person-role">Industry Collaborator</div>
+                </a>
+            </div>
+
+            <div class="panel-footer">
+                <span>© Avanika Narayan & Jon Saad-Falcon</span>
+                <span>Stanford University, CA</span>
+            </div>
+        </div>
+
+        <!-- Sponsors Panel -->
+        <div id="sponsors" class="panel">
+            <div class="section-label">06</div>
+            <h2>Sponsors & Labs</h2>
+
+            <h3>Sponsors</h3>
+            <div class="sponsor-grid">
+                <a href="https://www.laude.org/" class="sponsor-card">
+                    <div class="sponsor-name">Laude Institute</div>
+                    <div class="sponsor-desc">Research sponsor</div>
+                </a>
+                <a href="https://datascience.stanford.edu/marlowe" class="sponsor-card">
+                    <div class="sponsor-name">Stanford Marlowe</div>
+                    <div class="sponsor-desc">Stanford Data Science</div>
+                </a>
+                <a href="https://cloud.google.com/" class="sponsor-card">
+                    <img src="img/sponsors/google-cloud.png" alt="Google Cloud" class="sponsor-logo">
+                    <div class="sponsor-name">Google Cloud Platform</div>
+                </a>
+                <a href="https://lambda.ai/" class="sponsor-card">
+                    <img src="img/sponsors/lambda.svg" alt="Lambda" class="sponsor-logo">
+                    <div class="sponsor-name">Lambda Labs</div>
+                </a>
+            </div>
+
+            <h3>Labs</h3>
+            <div class="sponsor-grid">
+                <a href="https://hazyresearch.stanford.edu/" class="sponsor-card">
+                    <div class="sponsor-name">Hazy Research</div>
+                    <div class="sponsor-desc">Stanford University</div>
+                </a>
+                <a href="https://scalingintelligence.stanford.edu/" class="sponsor-card">
+                    <div class="sponsor-name">Scaling Intelligence Lab</div>
+                    <div class="sponsor-desc">Stanford University</div>
+                </a>
+                <a href="https://ai.stanford.edu/" class="sponsor-card">
+                    <div class="sponsor-name">Stanford SAIL</div>
+                    <div class="sponsor-desc">Stanford University</div>
+                </a>
+            </div>
+
+            <div class="panel-footer">
+                <span>© Avanika Narayan & Jon Saad-Falcon</span>
                 <span>Stanford University, CA</span>
             </div>
         </div>

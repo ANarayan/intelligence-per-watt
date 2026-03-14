@@ -306,6 +306,18 @@
             opacity: 1;
         }
 
+        .pub-section-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #666;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            border-left: 1px solid #aaa;
+        }
+
         /* Related Works */
         .related-section {
             margin-bottom: 40px;
@@ -797,6 +809,7 @@
             <div class="section-label">03</div>
             <h2>Our Work</h2>
 
+            <div class="pub-section-title">Publications</div>
             <div class="pub-grid">
                 <div class="pub-card">
                     <div class="pub-type">📄 Publication</div>
@@ -820,6 +833,18 @@
                     </div>
                     <div class="pub-links">
                         <a href="https://hazyresearch.stanford.edu/blog/2025-11-28-gdi">Blog Post →</a>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-type">📄 Publication</div>
+                    <div class="pub-title">OpenJarvis: Personal AI, On Personal Devices</div>
+                    <div class="pub-authors">Jon Saad-Falcon*, Avanika Narayan*, John Hennessy, Christopher Ré, Azalia Mirhoseini</div>
+                    <div class="pub-desc">
+                        An open-source framework for building personal AI agents that run entirely on-device, providing composable primitives for local AI systems that prioritize efficiency and privacy by keeping user data on personal hardware rather than routing through cloud services.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://scalingintelligence.stanford.edu/blogs/openjarvis/">Blog Post →</a>
                     </div>
                 </div>
 
@@ -859,7 +884,10 @@
                         <a href="https://arxiv.org/abs/2506.18203">Paper (arXiv) →</a>
                     </div>
                 </div>
+            </div>
 
+            <div class="pub-section-title">Code + Tools</div>
+            <div class="pub-grid">
                 <div class="pub-card">
                     <div class="pub-type">🔧 Code & Tools</div>
                     <div class="pub-title">IPW Profiling Harness</div>
@@ -868,6 +896,51 @@
                     </div>
                     <div class="pub-links">
                         <a href="https://github.com/HazyResearch/intelligence-per-watt">GitHub Repository →</a>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-type">🔧 Code & Tools</div>
+                    <div class="pub-title">OpenJarvis</div>
+                    <div class="pub-desc">
+                        Open-source toolkit for building and deploying personal AI agents on local hardware. Provides composable primitives, device-optimized model serving, and privacy-preserving pipelines for on-device intelligence.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://github.com/open-jarvis/OpenJarvis">GitHub Repository →</a>
+                        <a href="https://open-jarvis.github.io/OpenJarvis/">Docs →</a>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-type">🔧 Code & Tools</div>
+                    <div class="pub-title">Minions</div>
+                    <div class="pub-desc">
+                        Reference implementation for local-cloud LM collaboration protocols. Includes MinionS and Minion strategies for decomposing tasks across on-device and cloud models to reduce costs while preserving accuracy.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://github.com/HazyResearch/minions">GitHub Repository →</a>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-type">🔧 Code & Tools</div>
+                    <div class="pub-title">Archon</div>
+                    <div class="pub-desc">
+                        Architecture search framework for automatically discovering optimized inference-time technique configurations across LLMs, including generation ensembling, fusion, ranking, and verification strategies.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://github.com/ScalingIntelligence/Archon">GitHub Repository →</a>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="pub-type">🔧 Code & Tools</div>
+                    <div class="pub-title">Weaver</div>
+                    <div class="pub-desc">
+                        Toolkit for building weighted ensembles of weak verifiers to evaluate language model outputs. Enables scalable verification using smaller, cost-efficient models with weak supervision techniques.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://github.com/HazyResearch/scaling-verification">GitHub Repository →</a>
                     </div>
                 </div>
             </div>

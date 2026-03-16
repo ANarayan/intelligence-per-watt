@@ -470,6 +470,220 @@
             line-height: 1.6;
         }
 
+        /* Blog Styles */
+        .blog-listing {
+            display: block;
+        }
+
+        .blog-post-view {
+            display: none;
+        }
+
+        .blog-post-view.active {
+            display: block;
+        }
+
+        .blog-listing.hidden {
+            display: none;
+        }
+
+        .blog-card {
+            padding: 25px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            transition: border-color 0.15s;
+            margin-bottom: 20px;
+        }
+
+        .blog-card:hover {
+            border-color: #999;
+        }
+
+        .blog-date {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .blog-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: #000;
+        }
+
+        .blog-card-authors {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .blog-card-summary {
+            font-size: 13px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .blog-back-btn {
+            display: inline-block;
+            font-family: inherit;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #555;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .blog-back-btn:hover {
+            color: #000;
+        }
+
+        .blog-post-header {
+            margin-bottom: 40px;
+        }
+
+        .blog-post-title {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .blog-post-meta {
+            font-size: 11px;
+            color: #666;
+        }
+
+        .blog-tldr {
+            margin: 25px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: #fafafa;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .blog-tldr strong:first-child {
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .blog-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 30px;
+            font-size: 12px;
+        }
+
+        .blog-table th {
+            text-align: left;
+            padding: 10px 12px;
+            background: #e8e8e8;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid #ccc;
+            color: #555;
+        }
+
+        .blog-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .blog-table tr:hover td {
+            background: #fafafa;
+        }
+
+        .blog-table .rank-local {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .blog-ol {
+            list-style: none;
+            counter-reset: blog-counter;
+            margin: 20px 0;
+        }
+
+        .blog-ol li {
+            counter-increment: blog-counter;
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #333;
+            border-bottom: 1px solid #eee;
+        }
+
+        .blog-ol li:last-child {
+            border-bottom: none;
+        }
+
+        .blog-ol li::before {
+            content: counter(blog-counter) ".";
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .blog-ul {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .blog-ul li {
+            padding: 6px 0;
+            padding-left: 15px;
+            position: relative;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .blog-ul li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+
+        .blog-hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 900px) {
+            .blog-table {
+                font-size: 11px;
+                display: block;
+                overflow-x: auto;
+            }
+
+            .blog-table th,
+            .blog-table td {
+                padding: 6px 8px;
+                white-space: nowrap;
+            }
+        }
+
         /* Mobile Header (hidden on desktop) */
         .mobile-header {
             display: none;
@@ -695,10 +909,11 @@
         <ul class="tabs">
             <li><button class="tab-btn active" data-tab="vision">01. Vision</button></li>
             <li><button class="tab-btn" data-tab="agenda">02. Agenda</button></li>
-            <li><button class="tab-btn" data-tab="work">03. Our Work</button></li>
-            <li><button class="tab-btn" data-tab="related">04. Related</button></li>
-            <li><button class="tab-btn" data-tab="people">05. People</button></li>
-            <li><button class="tab-btn" data-tab="sponsors">06. Sponsors</button></li>
+            <li><button class="tab-btn" data-tab="work">03. Papers + Code</button></li>
+            <li><button class="tab-btn" data-tab="blog">04. Blog</button></li>
+            <li><button class="tab-btn" data-tab="related">05. Related</button></li>
+            <li><button class="tab-btn" data-tab="people">06. People</button></li>
+            <li><button class="tab-btn" data-tab="sponsors">07. Sponsors</button></li>
         </ul>
 
         <div class="sidebar-footer">
@@ -807,7 +1022,7 @@
         <!-- Work Panel -->
         <div id="work" class="panel">
             <div class="section-label">03</div>
-            <h2>Our Work</h2>
+            <h2>Papers + Code</h2>
 
             <div class="pub-section-title">Publications</div>
             <div class="pub-grid">
@@ -953,7 +1168,7 @@
 
         <!-- Related Panel -->
         <div id="related" class="panel">
-            <div class="section-label">04</div>
+            <div class="section-label">05</div>
             <h2>Related Works</h2>
             <p style="margin-bottom: 40px;">A collection of resources that inform and connect to Intelligence Per Watt research.</p>
 
@@ -1025,7 +1240,7 @@
 
         <!-- People Panel -->
         <div id="people" class="panel">
-            <div class="section-label">05</div>
+            <div class="section-label">06</div>
             <h2>People</h2>
 
             <h3>Principal Investigators</h3>
@@ -1115,7 +1330,7 @@
 
         <!-- Sponsors Panel -->
         <div id="sponsors" class="panel">
-            <div class="section-label">06</div>
+            <div class="section-label">07</div>
             <h2>Sponsors & Labs</h2>
 
             <h3>Sponsors</h3>
@@ -1159,6 +1374,215 @@
                 <span>Stanford University, CA</span>
             </div>
         </div>
+        <!-- Blog Panel -->
+        <div id="blog" class="panel">
+            <div class="section-label">04</div>
+            <h2>Blog</h2>
+
+            <!-- Blog Listing -->
+            <div class="blog-listing" id="blog-listing">
+                <div class="blog-card" onclick="showBlogPost('local-vs-cloud')">
+                    <div class="blog-date">March 17, 2026</div>
+                    <div class="blog-card-title">How Close Are Local Models to the Cloud? An OpenJarvis Benchmark Study</div>
+                    <div class="blog-card-authors">Avanika Narayan, Jon Saad-Falcon</div>
+                    <div class="blog-card-summary">We used OpenJarvis to run a head-to-head evaluation of 8 local open-source models against 6 frontier cloud models across 5 representative use-case benchmarks. The headline: local models rank within the top 3 overall.</div>
+                </div>
+            </div>
+
+            <!-- Blog Post: Local vs Cloud -->
+            <div class="blog-post-view" id="post-local-vs-cloud">
+                <button class="blog-back-btn" onclick="hideBlogPost()">&larr; Back to all posts</button>
+
+                <div class="blog-post-header">
+                    <div class="blog-post-title">How Close Are Local Models to the Cloud? An OpenJarvis Benchmark Study</div>
+                    <div class="blog-post-meta">Avanika Narayan, Jon Saad-Falcon &middot; March 17, 2026</div>
+                </div>
+
+                <div class="blog-tldr">
+                    <strong>TL;DR</strong> &mdash; We used <a href="https://github.com/HazyResearch/OpenJarvis">OpenJarvis</a> to run a head-to-head evaluation of <strong>8 local open-source models</strong> against <strong>6 frontier cloud models</strong> across 5 representative use-case benchmarks. The headline: <strong>local models rank within the top 3 overall</strong>, with the best local model (Qwen3.5:122B-A10B, 0.840 avg accuracy) matching or exceeding frontier cloud models like Claude Opus 4.6 and GPT-5.4. When you factor in that local inference costs <strong>$0</strong> in API fees (you already own the hardware), the picture starts to get very interesting.
+                </div>
+
+                <h3>The Eval Setup</h3>
+
+                <p><strong>Tasks</strong> &mdash; We designed 5 use-case benchmarks that mirror how people actually use AI assistants:</p>
+
+                <table class="blog-table">
+                    <thead>
+                        <tr><th>Benchmark</th><th>What It Tests</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Coding Assistant</strong></td><td>Generate, debug, and explain code</td></tr>
+                        <tr><td><strong>Security Scanner</strong></td><td>Identify vulnerabilities in code snippets</td></tr>
+                        <tr><td><strong>Daily Digest</strong></td><td>Summarize news/information into concise briefings</td></tr>
+                        <tr><td><strong>Document Q&A</strong></td><td>Answer questions grounded in provided documents</td></tr>
+                        <tr><td><strong>Browser Assistant</strong></td><td>Parse and reason over web content</td></tr>
+                    </tbody>
+                </table>
+
+                <p>Each benchmark has <strong>30 samples</strong>, scored via LLM-as-a-judge methodology over task-specific rubrics. All runs use temperature 0.0 and seed 42 for reproducibility.</p>
+
+                <p><strong>Models</strong> &mdash; All local models were served via Ollama on a local server with a single NVIDIA H100 GPU in Q4 quantization. We evaluated <strong>14 models</strong> &mdash; 8 local and 6 cloud (via native APIs):</p>
+
+                <table class="blog-table">
+                    <thead>
+                        <tr><th>Model</th><th>Type</th><th>Details</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Qwen3.5:122B-A10B</td><td>Local</td><td>MoE, 122B total / 10B active</td></tr>
+                        <tr><td>Qwen3.5:35B-A3B</td><td>Local</td><td>MoE, 35B total / 3B active</td></tr>
+                        <tr><td>GPT-OSS:120B</td><td>Local</td><td>MoE, 120B</td></tr>
+                        <tr><td>GLM-4.7-Flash</td><td>Local</td><td>MoE, 4.7B</td></tr>
+                        <tr><td>GLM4:Latest</td><td>Local</td><td>Dense, 9B</td></tr>
+                        <tr><td>Granite4-h-small</td><td>Local</td><td>32B hybrid (SSM+attention), 19.5 GB</td></tr>
+                        <tr><td>Granite3.3:8b</td><td>Local</td><td>8B, 4.9 GB</td></tr>
+                        <tr><td>Granite4-micro</td><td>Local</td><td>3B, 2.1 GB</td></tr>
+                        <tr><td>Claude Opus 4.6</td><td>Cloud</td><td>Anthropic</td></tr>
+                        <tr><td>Claude Haiku 4.5</td><td>Cloud</td><td>Anthropic</td></tr>
+                        <tr><td>GPT-5.4</td><td>Cloud</td><td>OpenAI</td></tr>
+                        <tr><td>GPT-5-mini</td><td>Cloud</td><td>OpenAI</td></tr>
+                        <tr><td>Gemini 3.1 Pro</td><td>Cloud</td><td>Google</td></tr>
+                        <tr><td>Gemini 3.1 Flash Lite</td><td>Cloud</td><td>Google</td></tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Metrics</strong></p>
+                <ul class="blog-ul">
+                    <li><strong>Accuracy:</strong> Per-benchmark rubric scoring (0&ndash;1)</li>
+                    <li><strong>Latency:</strong> End-to-end response time (ms)</li>
+                    <li><strong>Time to First Token (TTFT):</strong> Time elapsed before first token is generated (ms)</li>
+                    <li><strong>Cost:</strong> Dollar cost per request (cloud); local models cost $0 in API fees</li>
+                    <li><strong>Token usage:</strong> Input/output tokens per sample</li>
+                </ul>
+
+                <hr class="blog-hr">
+
+                <h3>The Results</h3>
+
+                <p><strong>The Leaderboard</strong></p>
+
+                <table class="blog-table">
+                    <thead>
+                        <tr><th>#</th><th>Model</th><th>Type</th><th>Coding</th><th>Security</th><th>Digest</th><th>DocQA</th><th>Browser</th><th>Avg</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="rank-local"><td>1</td><td><strong>Qwen3.5:122B-A10B</strong></td><td>Local</td><td>1.000</td><td><strong>0.667</strong></td><td>0.833</td><td>0.800</td><td>0.900</td><td><strong>0.840</strong></td></tr>
+                        <tr class="rank-local"><td>2</td><td><strong>Qwen3.5:35B-A3B</strong></td><td>Local</td><td>1.000</td><td>0.400</td><td><strong>0.941</strong></td><td>0.824</td><td><strong>0.923</strong></td><td><strong>0.818</strong></td></tr>
+                        <tr><td>3</td><td>Gemini 3.1 Flash Lite</td><td>Cloud</td><td>1.000</td><td>0.400</td><td>0.933</td><td>0.867</td><td>0.867</td><td>0.813</td></tr>
+                        <tr><td>4</td><td>Claude Opus 4.6</td><td>Cloud</td><td>0.967</td><td>0.400</td><td>0.933</td><td><strong>0.967</strong></td><td>0.767</td><td>0.807</td></tr>
+                        <tr><td>5</td><td>GPT-5.4</td><td>Cloud</td><td>1.000</td><td>0.233</td><td><strong>0.967</strong></td><td><strong>0.967</strong></td><td>0.833</td><td>0.800</td></tr>
+                        <tr class="rank-local"><td>6</td><td><strong>Granite4-h-small</strong></td><td>Local</td><td>1.000</td><td>0.300</td><td>0.930</td><td>0.800</td><td>0.900</td><td>0.790</td></tr>
+                        <tr><td>7</td><td>Gemini 3.1 Pro</td><td>Cloud</td><td>0.933</td><td>0.367</td><td>0.933</td><td>0.933</td><td>0.767</td><td>0.787</td></tr>
+                        <tr class="rank-local"><td>8</td><td><strong>Granite3.3:8b</strong></td><td>Local</td><td>1.000</td><td>0.300</td><td>0.870</td><td>0.730</td><td>0.830</td><td>0.750</td></tr>
+                        <tr><td>9</td><td>Claude Haiku 4.5</td><td>Cloud</td><td>0.767</td><td>0.433</td><td>0.933</td><td>0.800</td><td>0.767</td><td>0.740</td></tr>
+                        <tr><td>10</td><td>GPT-5-mini</td><td>Cloud</td><td>1.000</td><td>0.367</td><td>0.933</td><td>0.833</td><td>0.467</td><td>0.720</td></tr>
+                        <tr class="rank-local"><td>11</td><td>GPT-OSS:120B</td><td>Local</td><td>0.967</td><td>0.367</td><td>0.900</td><td>0.767</td><td>0.500</td><td>0.700</td></tr>
+                        <tr class="rank-local"><td>12</td><td>GLM-4.7-Flash</td><td>Local</td><td>0.800</td><td>0.367</td><td>0.833</td><td>0.767</td><td>0.700</td><td>0.693</td></tr>
+                        <tr class="rank-local"><td>13</td><td>Granite4-micro</td><td>Local</td><td>1.000</td><td>0.200</td><td>0.830</td><td>0.700</td><td>0.730</td><td>0.690</td></tr>
+                        <tr class="rank-local"><td>14</td><td>GLM4:Latest</td><td>Local</td><td>0.800</td><td>0.200</td><td>0.733</td><td>0.667</td><td>0.467</td><td>0.573</td></tr>
+                    </tbody>
+                </table>
+
+                <p>The top of the table is striking: <strong>local models rank within the top 3 overall.</strong> Excitingly, Qwen3.5:35B-A3B does it with <em>only 3 billion active parameters per token</em>.</p>
+
+                <p>Also notable: Granite4-h-small (a 32B hybrid SSM+attention model at 19.5 GB) slots in at #6 overall &mdash; ahead of Gemini Pro &mdash; while Granite4-micro (a <strong>3B model that fits in 2.1 GB</strong>) scores 0.69 at sub-3-second latency.</p>
+
+                <p><strong>The Cost Story</strong></p>
+
+                <table class="blog-table">
+                    <thead>
+                        <tr><th>Model</th><th>Type</th><th>Accuracy</th><th>Total Cost</th><th>Cost/Request</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Gemini Flash Lite</td><td>Cloud</td><td>0.813</td><td>$0.19</td><td>$0.001</td></tr>
+                        <tr><td>Claude Haiku 4.5</td><td>Cloud</td><td>0.740</td><td>$0.48</td><td>$0.003</td></tr>
+                        <tr><td>GPT-5-mini</td><td>Cloud</td><td>0.720</td><td>$0.54</td><td>$0.004</td></tr>
+                        <tr><td>Gemini Pro</td><td>Cloud</td><td>0.787</td><td>$1.34</td><td>$0.009</td></tr>
+                        <tr><td>Claude Opus 4.6</td><td>Cloud</td><td>0.807</td><td>$3.47</td><td>$0.023</td></tr>
+                        <tr><td>GPT-5.4</td><td>Cloud</td><td>0.800</td><td>$6.74</td><td>$0.045</td></tr>
+                        <tr><td><strong>All 8 local models</strong></td><td>Local</td><td>0.732 (avg)</td><td><strong>$0</strong></td><td><strong>$0</strong></td></tr>
+                    </tbody>
+                </table>
+
+                <p>GPT-5.4 costs <strong>36x more</strong> than Gemini Flash Lite for <em>comparable accuracy</em> (0.800 vs 0.813). And the local models? <strong>$0 API cost.</strong> Once you have the hardware, inference is free (for simplicity we don't factor in electricity costs). Qwen3.5:35B-A3B delivers <strong>0.818 accuracy</strong> at no marginal cost vs Claude Opus at <strong>$3.47 for 0.807</strong>.</p>
+
+                <p>Total cloud API spend for this eval: <strong>$12.77</strong>. Total for all local models: <strong>$0</strong>.</p>
+
+                <p><strong>The Latency Story</strong></p>
+
+                <table class="blog-table">
+                    <thead>
+                        <tr><th>Model</th><th>Type</th><th>Mean Latency</th><th>Mean TTFT</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Granite4-micro</td><td>Local</td><td>2.69s</td><td>&mdash;</td></tr>
+                        <tr><td>Gemini Flash Lite</td><td>Cloud</td><td>2.8s</td><td>2.8s</td></tr>
+                        <tr><td>Granite3.3:8b</td><td>Local</td><td>3.30s</td><td>&mdash;</td></tr>
+                        <tr><td>GLM4:Latest</td><td>Local</td><td>5.7s</td><td>0.06s</td></tr>
+                        <tr><td>Claude Haiku 4.5</td><td>Cloud</td><td>5.2s</td><td>5.2s</td></tr>
+                        <tr><td>Granite4-h-small</td><td>Local</td><td>6.98s</td><td>&mdash;</td></tr>
+                        <tr><td>GPT-5.4</td><td>Cloud</td><td>12.3s</td><td>12.3s</td></tr>
+                        <tr><td>Claude Opus 4.6</td><td>Cloud</td><td>18.5s</td><td>18.5s</td></tr>
+                        <tr><td>GPT-OSS:120B</td><td>Local</td><td>58.2s</td><td>0.27s</td></tr>
+                        <tr><td>Qwen3.5:35B-A3B</td><td>Local</td><td>89.5s</td><td>0.25s</td></tr>
+                        <tr><td>GLM-4.7-Flash</td><td>Local</td><td>104.0s</td><td>0.13s</td></tr>
+                        <tr><td>Qwen3.5:122B-A10B</td><td>Local</td><td>418.2s</td><td>3.25s</td></tr>
+                    </tbody>
+                </table>
+
+                <p>The average cloud latency is 13.5s per sample. The average local latency is 135s &mdash; about <strong>10x slower</strong>.</p>
+
+                <p><strong>TTFT tells a different story.</strong> Local models start streaming tokens <em>almost instantly</em> &mdash; GLM-4.7-Flash has a <strong>0.13s TTFT</strong> vs cloud models at 2&ndash;24s. The total latency comes from generation, not queuing. For applications that show streaming output (chat UIs, code editors), the <em>perceived</em> responsiveness of local models can actually be <em>better</em> than cloud.</p>
+
+                <p>The Granite models tell a particularly compelling latency story: Granite4-micro at <strong>2.69s</strong> is the <strong>fastest model in the entire eval</strong> (local or cloud), and Granite4-h-small at <strong>6.98s</strong> delivers 0.79 accuracy &mdash; faster than GPT-5.4, Claude Opus, and Gemini Pro.</p>
+
+                <hr class="blog-hr">
+
+                <h3>Interesting Findings</h3>
+
+                <p><strong>Finding 1: $0 vs. $12.77 &mdash; The Cost Gap Is Stark</strong></p>
+                <p>Total cloud API spend for this eval: <strong>$12.77</strong>. Total for all 8 local models: <strong>$0</strong>. And the variance <em>within</em> cloud is just as wild. GPT-5.4 costs <strong>36x more</strong> than Gemini Flash Lite ($6.74 vs $0.19) for <em>comparable accuracy</em> (0.800 vs 0.813). Meanwhile, Qwen3.5:35B-A3B delivers <strong>0.818 accuracy</strong> &mdash; higher than Opus &mdash; at zero marginal cost. Once you own the hardware, every additional request is free.</p>
+
+                <p><strong>Finding 2: Local Models Stream First, Think Later</strong></p>
+                <p>The latency story looks bad for local models at first glance &mdash; 135s average vs 13.5s for cloud, roughly <strong>10x slower</strong>. But TTFT (time-to-first-token) flips the narrative. Local models start streaming tokens <em>almost instantly</em>: GLM-4.7-Flash has a <strong>0.13s TTFT</strong>, Qwen3.5:35B-A3B clocks <strong>0.25s</strong>, and even the massive Qwen3.5:122B-A10B starts at <strong>3.25s</strong>. Cloud models? They range from <strong>2.8s</strong> (Gemini Flash Lite) to <strong>24.2s</strong> (GPT-5-mini) before you see a single token.</p>
+
+                <p><strong>Finding 3: MoE Is the Secret Sauce</strong></p>
+                <p>Both top-performing local models use Mixture-of-Experts architecture. Qwen3.5:122B-A10B has 122 billion total parameters but only activates 10 billion per token. Qwen3.5:35B-A3B activates just 3 billion. This means they fit on a single H100 while delivering frontier-class accuracy. The MoE architecture is what makes "local models that compete with the cloud" possible &mdash; you get the knowledge capacity of a massive model with the inference cost of a small one.</p>
+
+                <p><strong>Finding 4: Tiny Models Punch Way Above Their Weight</strong></p>
+                <p>Look at the Granite models in the leaderboard. All three perform well for coding &mdash; including Granite4-micro, a <strong>3 billion parameter model</strong> that fits in <strong>2.1 GB</strong> of memory. It scores 0.69 average across all benchmarks at <strong>sub-3-second latency</strong>. That's a model that can run on your phone and still get 69% of the way to Claude Opus.</p>
+                <p>Granite4-h-small is particularly interesting &mdash; its hybrid SSM+attention architecture delivers <strong>79% accuracy at 7s latency</strong>, slotting in at #6 overall (ahead of Gemini Pro!) while being <strong>4x faster</strong> than Qwen3.5:35B-A3B at only 5% less accuracy.</p>
+
+                <hr class="blog-hr">
+
+                <h3>Limitations</h3>
+                <ul class="blog-ul">
+                    <li><strong>Sample sizes are small</strong> (30 per benchmark). We'd love to scale this up.</li>
+                    <li><strong>5 benchmarks don't cover everything.</strong> These are realistic use-case tasks, but they're not exhaustive.</li>
+                    <li><strong>Quantization matters.</strong> All local models ran in Q4 quantization. Full-precision scores might differ.</li>
+                </ul>
+                <p>This is exploratory work. We spun up a few representative benchmark tasks and wanted to openly share what we learned. We're still learning &mdash; so if you see something off, let us know.</p>
+
+                <hr class="blog-hr">
+
+                <h3>Key Takeaways</h3>
+                <ol class="blog-ol">
+                    <li><strong>The accuracy gap between local and cloud models is narrow and closing fast.</strong> Local models rank within the top 3 overall, and the best local MoE models are competitive with every cloud model we tested.</li>
+                    <li><strong>Cost is the killer argument for local.</strong> $0 marginal cost for equivalent or better accuracy. For batch workloads, data processing, evals, or any use case where you're making hundreds+ of requests, local inference is a no-brainer once you have the hardware.</li>
+                    <li><strong>Latency is the real tradeoff.</strong> Local models are slower for end-to-end generation, but their instant TTFT means streaming UIs feel responsive. For interactive use, smaller models like Granite4-h-small (7s) or GLM4 (5.7s) are cloud-competitive on latency.</li>
+                    <li><strong>MoE architecture is what makes this possible.</strong> Sparse activation lets you pack frontier-level knowledge into a GPU-friendly package. The models winning on local inference aren't brute-forcing it with dense parameters &mdash; they're being smart about which parameters to use.</li>
+                    <li><strong>Small models are more capable than you think.</strong> A 3B model at 2.1 GB can execute coding tasks and handle 69% of what Opus handles. A 32B hybrid model matches cloud latency. Don't sleep on small models.</li>
+                </ol>
+
+                <div class="callout">
+                    <strong>OpenJarvis is open source.</strong> Check it out at <a href="https://github.com/HazyResearch/OpenJarvis">github.com/HazyResearch/OpenJarvis</a>.
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <span>&copy; Avanika Narayan & Jon Saad-Falcon</span>
+                <span>Stanford University, CA</span>
+            </div>
+        </div>
     </main>
 </div>
 
@@ -1171,15 +1595,32 @@
             // Update active tab
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
-            
+
             // Update active panel
             panels.forEach(p => p.classList.remove('active'));
             document.getElementById(tab.dataset.tab).classList.add('active');
-            
+
+            // Reset blog view to listing when switching to blog tab
+            if (tab.dataset.tab === 'blog') {
+                hideBlogPost();
+            }
+
             // Scroll main content to top
             document.querySelector('.main').scrollTop = 0;
         });
     });
+
+    function showBlogPost(postId) {
+        document.getElementById('blog-listing').classList.add('hidden');
+        document.getElementById('post-' + postId).classList.add('active');
+        document.querySelector('.main').scrollTop = 0;
+    }
+
+    function hideBlogPost() {
+        document.getElementById('blog-listing').classList.remove('hidden');
+        document.querySelectorAll('.blog-post-view').forEach(p => p.classList.remove('active'));
+        document.querySelector('.main').scrollTop = 0;
+    }
 </script>
 
 </body>

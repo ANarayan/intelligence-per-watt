@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intelligence Per Watt</title>
+    <title>Intelligence Per Watt — Research on Efficient AI</title>
+    <meta name="description" content="Research on the intelligence efficiency of AI systems: Intelligence per Watt, OpenJarvis, the Intelligence Control Plane, and Joules-to-GDP.">
+    <meta property="og:title" content="Intelligence Per Watt — Research on Efficient AI">
+    <meta property="og:description" content="Measuring intelligence efficiency, building personal AI, composing agentic systems, and studying economic value per joule.">
+    <meta property="og:url" content="https://www.intelligence-per-watt.ai/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://www.intelligence-per-watt.ai/">
     <style>
         * {
             box-sizing: border-box;
@@ -135,7 +142,7 @@
         }
 
         .panel {
-            display: none;
+            display: block;
             max-width: 750px;
         }
 
@@ -476,7 +483,7 @@
         }
 
         .blog-post-view {
-            display: none;
+            display: block;
         }
 
         .blog-post-view.active {
@@ -888,46 +895,127 @@
                 font-size: 11px;
             }
         }
+
+        /* Research program refresh. Content remains available without JavaScript. */
+        [hidden] { display: none !important; }
+        .enhanced .panel:not(.active), .enhanced .blog-post-view:not(.active) { display: none; }
+        .container { grid-template-columns: 280px minmax(0, 1fr); }
+        .main, .pub-card, .project-card, .person-card { min-width: 0; }
+        a:hover { opacity: 1; }
+        a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="-1"]:focus-visible {
+            outline: 2px solid #1a1a1a;
+            outline-offset: 4px;
+        }
+        .skip-link {
+            position: fixed; top: 8px; left: 8px; z-index: 200;
+            padding: 12px 18px; background: #fff; border: 2px solid #1a1a1a;
+            transform: translateY(-160%);
+        }
+        .skip-link:focus { transform: translateY(0); }
+        .sidebar nav { flex-grow: 1; }
+        .panel:not(:last-child) { margin-bottom: 60px; }
+        .enhanced .panel { margin-bottom: 0; }
+        .panel, [data-project], .blog-post-view { scroll-margin-top: 24px; }
+        .section-label, .sidebar-footer, .person-role, .mobile-header .meta,
+        .panel-footer { color: #595959; }
+        .program-intro { margin-bottom: 24px; }
+        .program-title { margin-top: 0; }
+        .project-overview {
+            display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px; margin-bottom: 44px;
+        }
+        .project-card {
+            display: block; padding: 20px; border: 1px solid #ccc;
+            background: #f7f6f4; transition: border-color .15s;
+        }
+        .project-card:hover { border-color: #1a1a1a; }
+        .project-role { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: #595959; }
+        .project-card h3, h3.pub-title, .event-title {
+            padding: 0; border: 0; background: none; text-transform: none;
+            letter-spacing: normal;
+        }
+        .project-card h3 { font-size: 14px; margin: 8px 0 10px; }
+        .project-card p { font-size: 12px; line-height: 1.65; margin: 0; }
+        .project-card .project-link { display: block; margin-top: 14px; font-size: 11px; font-weight: 600; }
+        .pub-card { display: flex; flex-direction: column; overflow-wrap: anywhere; }
+        h3.pub-title { margin: 0 0 15px; }
+        .pub-card .pub-links { margin-top: auto; }
+        .pub-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+        .pub-links a { display: inline-flex; align-items: center; min-height: 40px; margin: 0; }
+        .pub-links a:hover, .person-projects a:hover, .event-links a:hover { text-decoration: underline; }
+        details.pub-authors summary { cursor: pointer; min-height: 40px; padding: 4px 0; }
+        details.pub-authors summary:hover { color: #1a1a1a; }
+        details.pub-authors p { font-size: 12px; line-height: 1.7; margin: 10px 0 0; color: #595959; }
+        .pub-authors .contribution-note { font-size: 11px; }
+        .person-projects { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 10px; margin-top: 7px; }
+        .person-projects a { font-size: 10px; min-height: 26px; display: inline-flex; align-items: center; text-decoration: underline; }
+        .person-name, .person-role { overflow-wrap: anywhere; }
+        .event-list { list-style: none; padding: 0; }
+        .event-item { padding: 22px 0; border-top: 1px solid #ddd; }
+        .event-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 11px; color: #595959; margin-bottom: 10px; }
+        .event-title { font-size: 14px; line-height: 1.5; margin: 0 0 9px; }
+        .event-item p { font-size: 12px; margin: 0 0 8px; }
+        .event-links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 11px; }
+        .event-links a { display: inline-flex; align-items: center; min-height: 36px; text-decoration: underline; }
+        .source-note { font-size: 11px; color: #595959; margin-top: 24px; }
+        .source-note a { text-decoration: underline; }
+        .blog-card { display: block; }
+        .blog-back-btn { min-height: 40px; }
+        @media (max-width: 900px) {
+            .main { padding-top: calc(var(--nav-offset, 130px) + 20px); }
+            .panel, [data-project], .blog-post-view { scroll-margin-top: var(--nav-offset, 140px); }
+        }
+        @media (max-width: 600px) {
+            .project-overview { grid-template-columns: 1fr; }
+            .project-card { padding: 18px; }
+            .pub-links a { min-height: 44px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+        }
     </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <div class="container">
     <aside class="sidebar">
         <!-- Mobile Header -->
         <div class="mobile-header">
             <h1>Intelligence Per Watt</h1>
-            <div class="meta">Stanford 2025</div>
+            <div class="meta">Stanford · Research</div>
         </div>
 
         <!-- Desktop Logo -->
         <div class="logo">
             <h1>Intelligence<br>Per Watt</h1>
         </div>
-        <div class="tagline"><i>A Unified Metric for the AI Era</i></div>
+        <div class="tagline"><i>Measuring and building efficient AI</i></div>
 
-        <ul class="tabs">
-            <li><button class="tab-btn active" data-tab="vision">01. Vision</button></li>
-            <li><button class="tab-btn" data-tab="agenda">02. Agenda</button></li>
-            <li><button class="tab-btn" data-tab="work">03. Papers + Code</button></li>
-            <li><button class="tab-btn" data-tab="blog">04. Blog</button></li>
-            <li><button class="tab-btn" data-tab="related">05. Related</button></li>
-            <li><button class="tab-btn" data-tab="people">06. People</button></li>
-            <li><button class="tab-btn" data-tab="sponsors">07. Sponsors</button></li>
-        </ul>
+        <nav aria-label="Sections"><ul class="tabs">
+            <li><a class="tab-btn" href="#vision" data-tab="vision">01. Vision</a></li>
+            <li><a class="tab-btn" href="#agenda" data-tab="agenda">02. Agenda</a></li>
+            <li><a class="tab-btn" href="#work" data-tab="work">03. Papers + Code</a></li>
+            <li><a class="tab-btn" href="#talks" data-tab="talks">04. Talks &amp; Media</a></li>
+            <li><a class="tab-btn" href="#blog" data-tab="blog">05. Blog</a></li>
+            <li><a class="tab-btn" href="#related" data-tab="related">06. Related</a></li>
+            <li><a class="tab-btn" href="#people" data-tab="people">07. People</a></li>
+            <li><a class="tab-btn" href="#sponsors" data-tab="sponsors">08. Sponsors</a></li>
+        </ul></nav>
 
         <div class="sidebar-footer">
-            Updated: 01/07/2025<br>
+            Updated: October 24, 2026<br>
             Stanford University, CA
             <a href="mailto:avanika@stanford.edu">Want to chat? Email Us! →</a>
         </div>
     </aside>
 
-    <main class="main">
+    <main class="main" id="main-content" tabindex="-1">
         <!-- Vision Panel -->
-        <div id="vision" class="panel active">
+        <div id="vision" class="panel active" role="region" aria-labelledby="heading-vision">
             <div class="section-label">01</div>
-            <h2>Vision Statement</h2>
+            <h2 id="heading-vision" tabindex="-1">Vision Statement</h2>
+
             
             <p>
                 From 1946 to 2009, computing efficiency—performance per watt—doubled every 1.5 years. This trend, documented by Koomey and colleagues, transformed where computing could happen. Workloads migrated from mainframe rooms to desktops, then laptops, then pockets. The transition from centralized time-sharing to personal computing didn't occur because PCs surpassed mainframes in raw performance. It occurred when efficiency gains made computing capable enough within the power constraints of personal devices.
@@ -971,9 +1059,9 @@
         </div>
 
         <!-- Agenda Panel -->
-        <div id="agenda" class="panel">
+        <div id="agenda" class="panel" role="region" aria-labelledby="heading-agenda">
             <div class="section-label">02</div>
-            <h2>The IPW Research Agenda</h2>
+            <h2 id="heading-agenda" tabindex="-1">The IPW Research Agenda</h2>
             <p>We're pursuing a coordinated research program to understand and maximize intelligence efficiency across the full stack.</p>
 
             <table class="research-table">
@@ -1020,423 +1108,347 @@
         </div>
 
         <!-- Work Panel -->
-        <div id="work" class="panel">
-            <div class="section-label">03</div>
-            <h2>Papers + Code</h2>
-
-            <div class="pub-section-title">Publications</div>
-            <div class="pub-grid">
-                <div class="pub-card">
-                    <div class="pub-type">📰 Article</div>
-                    <div class="pub-title">China's AI Heist</div>
-                    <div class="pub-authors">Jared Dunnmon, Avanika Narayan, Jon Saad-Falcon</div>
-                    <div class="pub-desc">
+        <div id="work" class="panel" role="region" aria-labelledby="heading-work">
+            <div class="section-label">03</div><h2 id="heading-work" tabindex="-1">Papers + Code</h2>
+            <p>Research on measuring intelligence efficiency, building personal AI, composing agentic systems, and understanding economic value per joule.</p>
+            <div class="pub-section-title">Core projects</div><div class="pub-grid"><article class="pub-card" id="icp" data-project="icp" aria-labelledby="title-icp">
+                    <div class="pub-type">Preprint</div>
+                    <h3 class="pub-title" id="title-icp">The Intelligence Control Plane: Optimizing Intelligence per Joule and per Dollar for Agentic Tasks</h3>
+                    <details class="pub-authors"><summary>Authors (12)</summary><p>Jon Saad-Falcon*, Avanika Narayan*, Catherine Deng*, Ravenor Davion, Elliot Slusky, Amirreza Zeinali, Matthew Hart, James Noraky, Sheng Li, John Hennessy, Azalia Mirhoseini, Christopher Ré</p><p class="contribution-note">* Equal contribution.</p></details>
+                    <p class="pub-desc">Studies agentic systems composed from models, middleware, and machines. Compares fixed selection, query routing, local-first escalation, and cloud-plan/local-execute policies through task accuracy, energy use, and dollar cost.</p>
+                </article>
+<article class="pub-card" id="joules-to-gdp" data-project="joules-to-gdp" aria-labelledby="title-joules-to-gdp">
+                    <div class="pub-type">Preprint</div>
+                    <h3 class="pub-title" id="title-joules-to-gdp">Joules-to-GDP: How Much Economic Value Do AI Systems Produce per Unit of Energy?</h3>
+                    <details class="pub-authors"><summary>Authors (8)</summary><p>Amirreza Zeinali, Jon Saad-Falcon, Avanika Narayan, Mersad Abbasi, Jonathan S. Hartley, John Hennessy, Christopher Re, Azalia Mirhoseini</p></details>
+                    <p class="pub-desc">Connects professional task outcomes to end-to-end energy use through Net Value per Joule and Time Saving per Joule. Compares occupations, models, and accelerators on 220 public GDPval tasks across 44 occupations.</p>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2610.30858">Paper (arXiv) →</a></div>
+                </article>
+<article class="pub-card" id="openjarvis" data-project="openjarvis" aria-labelledby="title-openjarvis">
+                    <div class="pub-type">Preprint</div>
+                    <h3 class="pub-title" id="title-openjarvis">OpenJarvis: Personal AI, On Personal Devices</h3>
+                    <details class="pub-authors"><summary>Authors (13)</summary><p>Jon Saad-Falcon*, Avanika Narayan*, Robby Manihani, Tanvir Bhathal, Herumb Shandilya, Hakki Orhun Akengin, Gabriel Bo, Andrew Park, Matthew Hart, Caia Costello, Chuan Li, Christopher Ré, Azalia Mirhoseini</p><p class="contribution-note">* Equal contribution.</p></details>
+                    <p class="pub-desc">A personal AI stack built from editable model, engine, agent, tool and memory, and learning primitives. LLM-guided search improves the system specification so the resulting agent can run entirely on-device at inference time.</p>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2605.17172">Paper (arXiv) →</a>
+<a href="https://github.com/open-jarvis/OpenJarvis">Code →</a>
+<a href="https://openjarvis.stanford.edu/">Project →</a>
+<a href="https://scalingintelligence.stanford.edu/blogs/openjarvis/">Blog →</a></div>
+                </article>
+<article class="pub-card" id="intelligence-per-watt" data-project="intelligence-per-watt" aria-labelledby="title-intelligence-per-watt">
+                    <div class="pub-type">NeurIPS 2026</div>
+                    <h3 class="pub-title" id="title-intelligence-per-watt">Intelligence per Watt: Measuring Intelligence Efficiency of Local AI</h3>
+                    <details class="pub-authors"><summary>Authors (15)</summary><p>Jon Saad-Falcon*, Avanika Narayan*, Hakki Orhun Akengin, J. Wes Griffin, Herumb Shandilya, Adrian Gamarra Lafuente, Medhya Goel, Rebecca Joseph, Shlok Natarajan, Etash Kumar Guha, Shang Zhu, Ben Athiwaratkun, John Hennessy, Azalia Mirhoseini, Christopher Ré</p><p class="contribution-note">* Equal contribution.</p></details>
+                    <p class="pub-desc">Measures accuracy, energy, power, and latency across model–accelerator configurations to study when local AI can serve real-world workloads efficiently. Provides the measurement toolkit underlying the research program.</p>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2511.07885">Paper (arXiv) →</a>
+<a href="https://github.com/HazyResearch/intelligence-per-watt">Code →</a>
+<a href="https://hazyresearch.stanford.edu/intelligence-per-watt/">Docs →</a>
+<a href="https://hazyresearch.stanford.edu/blog/2025-11-11-ipw">Blog →</a></div>
+                </article></div>
+<div class="pub-section-title">Related publications and perspectives</div><div class="pub-grid"><div class="pub-card">
+<div class="pub-type">Article</div>
+<h3 class="pub-title">China's AI Heist</h3>
+<div class="pub-authors">Jared Dunnmon, Avanika Narayan, Jon Saad-Falcon</div>
+<div class="pub-desc">
                         A Foreign Affairs essay on how the United States should respond to Beijing's unauthorized "distillation" of frontier AI models, and what safeguarding America's lead in AI will require.
                     </div>
-                    <div class="pub-links">
-                        <a href="https://www.foreignaffairs.com/china/chinas-ai-heist">Read in Foreign Affairs →</a>
-                    </div>
-                </div>
-
-                <div class="pub-card">
-                    <div class="pub-type">📄 Publication</div>
-                    <div class="pub-title">Intelligence Per Watt: Measuring Intelligence Efficiency of Local AI</div>
-                    <div class="pub-authors">Jon Saad-Falcon*, Avanika Narayan*, et al.</div>
-                    <div class="pub-desc">
-                        Introduces "intelligence per watt" (IPW) as a metric for measuring AI efficiency, finding that local LMs can answer 88.7% of single-turn reasoning & chat queries and that hybrid local-cloud routing cuts energy use by 64% and costs by 59% compared to cloud-only inference.
-                    </div>
-                    <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2511.07885">Paper (arXiv) →</a>
-                        <a href="https://hazyresearch.stanford.edu/blog/2025-11-11-ipw">Blog Post →</a>
-                    </div>
-                </div>
-
-                <div class="pub-card">
-                    <div class="pub-type">📄 Publication</div>
-                    <div class="pub-title">Maximizing American Gross Domestic Intelligence with Hybrid Inference</div>
-                    <div class="pub-authors">Jared Dunnmon*, Avanika Narayan*, Jon Saad-Falcon*, Chris Ré</div>
-                    <div class="pub-desc">
+<div class="pub-links">
+<a href="https://www.foreignaffairs.com/china/chinas-ai-heist">Read in Foreign Affairs →</a>
+</div>
+</div>
+<div class="pub-card">
+<div class="pub-type">Perspective</div>
+<h3 class="pub-title">Maximizing American Gross Domestic Intelligence with Hybrid Inference</h3>
+<div class="pub-authors">Jared Dunnmon*, Avanika Narayan*, Jon Saad-Falcon*, Chris Ré</div>
+<div class="pub-desc">
                         Proposes "Gross Domestic Intelligence" (GDI) as a framework for national AI competitiveness, arguing that the U.S. can boost effective inference capacity 2–4× by activating the 70–80M AI-capable devices already deployed in American homes and offices alongside cloud infrastructure.
                     </div>
-                    <div class="pub-links">
-                        <a href="https://hazyresearch.stanford.edu/blog/2025-11-28-gdi">Blog Post →</a>
-                    </div>
-                </div>
-
-                <div class="pub-card">
-                    <div class="pub-type">📄 Publication</div>
-                    <div class="pub-title">OpenJarvis: Personal AI, On Personal Devices</div>
-                    <div class="pub-authors">Jon Saad-Falcon*, Avanika Narayan*, John Hennessy, Christopher Ré, Azalia Mirhoseini</div>
-                    <div class="pub-desc">
-                        An open-source framework for building personal AI agents that run entirely on-device, providing composable primitives for local AI systems that prioritize efficiency and privacy by keeping user data on personal hardware rather than routing through cloud services.
-                    </div>
-                    <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2605.17172">Paper (arXiv) →</a>
-                        <a href="https://scalingintelligence.stanford.edu/blogs/openjarvis/">Blog Post →</a>
-                    </div>
-                </div>
-
-                <div class="pub-card">
-                    <div class="pub-type">📄 Publication</div>
-                    <div class="pub-title">Minions: Cost-efficient Collaboration Between On-device and Cloud Language Models</div>
-                    <div class="pub-authors">Avanika Narayan*, Dan Biderman*, Sabri Eyuboglu*, et al.</div>
-                    <div class="pub-desc">
+<div class="pub-links">
+<a href="https://hazyresearch.stanford.edu/blog/2025-11-28-gdi">Blog Post →</a>
+</div>
+</div>
+<div class="pub-card" id="minions">
+<div class="pub-type">Preprint</div>
+<h3 class="pub-title" id="title-minions">Minions: Cost-efficient Collaboration Between On-device and Cloud Language Models</h3>
+<div class="pub-authors">Avanika Narayan*, Dan Biderman*, Sabri Eyuboglu*, et al.</div>
+<div class="pub-desc">
                         Introduces protocols for local-cloud LM collaboration on long-document reasoning tasks, where MinionS reduces cloud costs by 5.7× while maintaining 97.9% of frontier model accuracy by decomposing tasks into parallelizable subtasks executed locally.
                     </div>
-                    <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2502.15964">Paper (arXiv) →</a>
-                        <a href="https://hazyresearch.stanford.edu/blog/2025-02-24-minions">Blog Post →</a>
-                    </div>
-                </div>
-
-                <div class="pub-card">
-                    <div class="pub-type">📄 Publication</div>
-                    <div class="pub-title">Archon: An Architecture Search Framework for Inference-Time Techniques</div>
-                    <div class="pub-authors">Jon Saad-Falcon, Adrian Gamarra Lafuente, Shlok Natarajan, et al.</div>
-                    <div class="pub-desc">
+<div class="pub-links">
+<a href="https://arxiv.org/abs/2502.15964">Paper (arXiv) →</a>
+<a href="https://hazyresearch.stanford.edu/blog/2025-02-24-minions">Blog Post →</a>
+</div>
+</div>
+<div class="pub-card" id="archon">
+<div class="pub-type">ICML 2025</div>
+<h3 class="pub-title" id="title-archon">Archon: An Architecture Search Framework for Inference-Time Techniques</h3>
+<div class="pub-authors">Jon Saad-Falcon, Adrian Gamarra Lafuente, Shlok Natarajan, et al.</div>
+<div class="pub-desc">
                         An automated framework for optimizing inference-time techniques in LLMs, exploring a large design space to discover optimized configurations. Archon-designed systems outperform frontier models such as OpenAI's o1, GPT-4o, and Claude 3.5 Sonnet by an average of 15.1% across instruction-following, reasoning, and coding tasks.
                     </div>
-                    <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2409.15254">Paper (arXiv) →</a>
-                    </div>
-                </div>
-
-                <div class="pub-card">
-                    <div class="pub-type">📄 Publication</div>
-                    <div class="pub-title">Weaver: Shrinking the Generation-Verification Gap with Weak Verifiers</div>
-                    <div class="pub-authors">Jon Saad-Falcon, E. Kelly Buchanan, Mayee F. Chen, et al.</div>
-                    <div class="pub-desc">
+<div class="pub-links">
+<a href="https://arxiv.org/abs/2409.15254">Paper (arXiv) →</a>
+</div>
+</div>
+<div class="pub-card" id="weaver">
+<div class="pub-type">NeurIPS 2025</div>
+<h3 class="pub-title" id="title-weaver">Weaver: Shrinking the Generation-Verification Gap with Weak Verifiers</h3>
+<div class="pub-authors">Jon Saad-Falcon, E. Kelly Buchanan, Mayee F. Chen, et al.</div>
+<div class="pub-desc">
                         A framework combining multiple imperfect verifiers to evaluate language model responses. Uses weighted ensembles of weaker verification systems with weak supervision to estimate accuracy, achieving competitive results with smaller models that approach the performance of advanced systems like o3-mini.
                     </div>
-                    <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2506.18203">Paper (arXiv) →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pub-section-title">Code + Tools</div>
-            <div class="pub-grid">
-                <div class="pub-card">
-                    <div class="pub-type">🔧 Code & Tools</div>
-                    <div class="pub-title">IPW Profiling Harness</div>
-                    <div class="pub-desc">
+<div class="pub-links">
+<a href="https://arxiv.org/abs/2506.18203">Paper (arXiv) →</a>
+</div>
+</div></div>
+<div class="pub-section-title">Code + Tools</div><div class="pub-grid">
+<div class="pub-card">
+<div class="pub-type">🔧 Code &amp; Tools</div>
+<h3 class="pub-title">IPW Profiling Harness</h3>
+<div class="pub-desc">
                         Open-source benchmarking suite that profiles LLM inference across NVIDIA, AMD, and Apple Silicon, measuring energy consumption, power draw, latency, and throughput to compute intelligence-per-watt metrics for any model-accelerator configuration.
                     </div>
-                    <div class="pub-links">
-                        <a href="https://github.com/HazyResearch/intelligence-per-watt">GitHub Repository →</a>
-                    </div>
-                </div>
-
-                <div class="pub-card">
-                    <div class="pub-type">🔧 Code & Tools</div>
-                    <div class="pub-title">OpenJarvis</div>
-                    <div class="pub-desc">
+<div class="pub-links">
+<a href="https://github.com/HazyResearch/intelligence-per-watt">GitHub Repository →</a>
+</div>
+</div>
+<div class="pub-card">
+<div class="pub-type">🔧 Code &amp; Tools</div>
+<h3 class="pub-title">OpenJarvis</h3>
+<div class="pub-desc">
                         Open-source toolkit for building and deploying personal AI agents on local hardware. Provides composable primitives, device-optimized model serving, and privacy-preserving pipelines for on-device intelligence.
                     </div>
-                    <div class="pub-links">
-                        <a href="https://github.com/open-jarvis/OpenJarvis">GitHub Repository →</a>
-                        <a href="https://open-jarvis.github.io/OpenJarvis/">Docs →</a>
-                    </div>
-                </div>
-
-                <div class="pub-card">
-                    <div class="pub-type">🔧 Code & Tools</div>
-                    <div class="pub-title">Minions</div>
-                    <div class="pub-desc">
+<div class="pub-links">
+<a href="https://github.com/open-jarvis/OpenJarvis">GitHub Repository →</a>
+<a href="https://open-jarvis.github.io/OpenJarvis/">Docs →</a>
+</div>
+</div>
+<div class="pub-card">
+<div class="pub-type">🔧 Code &amp; Tools</div>
+<h3 class="pub-title">Minions</h3>
+<div class="pub-desc">
                         Reference implementation for local-cloud LM collaboration protocols. Includes MinionS and Minion strategies for decomposing tasks across on-device and cloud models to reduce costs while preserving accuracy.
                     </div>
-                    <div class="pub-links">
-                        <a href="https://github.com/HazyResearch/minions">GitHub Repository →</a>
-                    </div>
-                </div>
-
-                <div class="pub-card">
-                    <div class="pub-type">🔧 Code & Tools</div>
-                    <div class="pub-title">Archon</div>
-                    <div class="pub-desc">
+<div class="pub-links">
+<a href="https://github.com/HazyResearch/minions">GitHub Repository →</a>
+</div>
+</div>
+<div class="pub-card">
+<div class="pub-type">🔧 Code &amp; Tools</div>
+<h3 class="pub-title">Archon</h3>
+<div class="pub-desc">
                         Architecture search framework for automatically discovering optimized inference-time technique configurations across LLMs, including generation ensembling, fusion, ranking, and verification strategies.
                     </div>
-                    <div class="pub-links">
-                        <a href="https://github.com/ScalingIntelligence/Archon">GitHub Repository →</a>
-                    </div>
-                </div>
-
-                <div class="pub-card">
-                    <div class="pub-type">🔧 Code & Tools</div>
-                    <div class="pub-title">Weaver</div>
-                    <div class="pub-desc">
+<div class="pub-links">
+<a href="https://github.com/ScalingIntelligence/Archon">GitHub Repository →</a>
+</div>
+</div>
+<div class="pub-card">
+<div class="pub-type">🔧 Code &amp; Tools</div>
+<h3 class="pub-title">Weaver</h3>
+<div class="pub-desc">
                         Toolkit for building weighted ensembles of weak verifiers to evaluate language model outputs. Enables scalable verification using smaller, cost-efficient models with weak supervision techniques.
                     </div>
-                    <div class="pub-links">
-                        <a href="https://github.com/HazyResearch/scaling-verification">GitHub Repository →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel-footer">
-                <span>© Avanika Narayan & Jon Saad-Falcon </span>
-                <span>Stanford University, CA</span>
-            </div>
+<div class="pub-links">
+<a href="https://github.com/HazyResearch/scaling-verification">GitHub Repository →</a>
+</div>
+</div>
+</div><div class="panel-footer">
+<span>© Avanika Narayan &amp; Jon Saad-Falcon </span>
+<span>Stanford University, CA</span>
+</div>
         </div>
 
-        <!-- Related Panel -->
-        <div id="related" class="panel">
-            <div class="section-label">05</div>
-            <h2>Related Works</h2>
-            <p style="margin-bottom: 40px;">A collection of resources that inform and connect to Intelligence Per Watt research.</p>
-
-            <div class="related-columns">
-                <div class="related-section">
-                    <div class="related-title">Algorithmic Progress & Efficiency Measurement</div>
-                    <ul class="related-list">
-                        <li><a href="https://arxiv.org/abs/2311.06602">Algorithmic Progress in Language Models</a></li>
-                        <li><a href="https://www.lesswrong.com/posts/ssNSCaug5p3xnNDSd/how-fast-is-algorithmic-progress-in-ai-inference">How Fast is Algorithmic Progress in AI Inference?</a></li>
-                        <li><a href="https://epoch.ai/data-insights/llm-inference-price-trends">LLM Inference Price Trends (Epoch AI)</a></li>
-                        <li><a href="https://www.emergentmind.com/topics/compute-equivalent-gain-ceg-accounting">Compute Equivalent Gain (CEG) Accounting</a></li>
-                        <li><a href="https://arxiv.org/abs/2512.04123">Inference Efficiency Analysis</a></li>
-                        <li><a href="https://arxiv.org/pdf/2511.21622">Training Compute-Optimal Models</a></li>
-                    </ul>
-                </div>
-
-                <div class="related-section">
-                    <div class="related-title">Energy Measurement & Benchmarking</div>
-                    <ul class="related-list">
-                        <li><a href="https://leonardo-energy.pl/wp-content/uploads/2018/03/Green_Grid_Metrics.pdf">Green Grid Metrics</a></li>
-                        <li><a href="https://ml.energy/zeus/">Zeus: ML Energy Measurement</a></li>
-                        <li><a href="https://huggingface.github.io/AIEnergyScore/">AI Energy Score (Hugging Face)</a></li>
-                        <li><a href="https://arxiv.org/pdf/2512.03024">Energy Considerations for LLM Inference</a></li>
-                        <li><a href="https://github.com/mlcommons/inference">MLCommons Inference Benchmark</a></li>
-                        <li><a href="https://github.com/mlcommons/inference_policies">MLCommons Inference Policies</a></li>
-                        <li><a href="https://arxiv.org/abs/2408.00741">LLM Energy Measurement</a></li>
-                        <li><a href="https://colab.research.google.com/github/ml-energy/tutorials/blob/master/neurips25/resources/measuring_energy.ipynb">ML Energy Measurement Tutorial</a></li>
-                    </ul>
-                </div>
-
-                <div class="related-section">
-                    <div class="related-title">Economic Impact of AI</div>
-                    <ul class="related-list">
-                        <li><a href="https://economics.mit.edu/sites/default/files/2024-04/The%20Simple%20Macroeconomics%20of%20AI.pdf">The Simple Macroeconomics of AI (Acemoglu)</a></li>
-                        <li><a href="https://windowsontheory.org/2025/11/04/thoughts-by-a-non-economist-on-ai-and-economics/">Thoughts on AI and Economics (Boaz Barak)</a></li>
-                        <li><a href="https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic">How AI is Transforming Work at Anthropic</a></li>
-                        <li><a href="https://www.remotelabor.ai/">Remote Labor AI</a></li>
-                        <li><a href="https://andreyfradkin.com/assets/LLM_Demand_12_12_2025.pdf">LLM Labor Market Demand Analysis</a></li>
-                    </ul>
-                </div>
-
-                <div class="related-section">
-                    <div class="related-title">Benchmarks & Evaluation</div>
-                    <ul class="related-list">
-                        <li><a href="https://huggingface.co/datasets/openai/gdpval/viewer/default/train">GDPVal Dataset</a></li>
-                        <li><a href="https://leaderboard.snorkel.ai/">Snorkel AI Leaderboard</a></li>
-                        <li><a href="https://www.kaggle.com/benchmarks/ibm-research/enterprise-ops">IBM Enterprise Ops Benchmark</a></li>
-                        <li><a href="https://arxiv.org/abs/2505.06371">APEX Benchmark</a></li>
-                    </ul>
-                </div>
-
-                <div class="related-section">
-                    <div class="related-title">Inference Systems & Edge Computing</div>
-                    <ul class="related-list">
-                        <li><a href="https://www.usenix.org/conference/atc21/presentation/romero">INFaaS: Automated Model-less Inference</a></li>
-                        <li><a href="https://iceberg.mit.edu/">MIT Iceberg</a></li>
-                        <li><a href="https://www.cisco.com/site/us/en/products/computing/unified-edge/index.html">Cisco Unified Edge Computing</a></li>
-                        <li><a href="https://github.com/ulab-uiuc/LLMRouter">LLM Router</a></li>
-                        <li><a href="https://arxiv.org/abs/2402.16844">Efficient Inference Routing</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="panel-footer">
-                <span>© Avanika Narayan & Jon Saad-Falcon </span>
-                <span>Stanford University, CA</span>
-            </div>
-        </div>
-
-        <!-- People Panel -->
-        <div id="people" class="panel">
-            <div class="section-label">06</div>
-            <h2>People</h2>
-
-            <h3>Principal Investigators</h3>
-            <div class="people-grid">
-                <a href="https://cs.stanford.edu/~chrismre/" class="person-card">
-                    <img src="img/people/christopher-re.jpg" alt="Christopher Ré" class="person-photo">
-                    <div class="person-name">Christopher Ré</div>
-                    <div class="person-role">Principal Investigator</div>
-                </a>
-                <a href="https://www.azaliamirhoseini.com/" class="person-card">
-                    <img src="img/people/azalia-mirhoseini.jpg" alt="Azalia Mirhoseini" class="person-photo">
-                    <div class="person-name">Azalia Mirhoseini</div>
-                    <div class="person-role">Principal Investigator</div>
-                </a>
-                <a href="https://hennessy.stanford.edu/" class="person-card">
-                    <img src="img/people/john-hennessy.jpg" alt="John Hennessy" class="person-photo">
-                    <div class="person-name">John Hennessy</div>
-                    <div class="person-role">Principal Investigator</div>
-                </a>
-            </div>
-
-            <h3>PhD Students</h3>
-            <div class="people-grid">
-                <a href="https://jonsaadfalcon.com/" class="person-card">
-                    <img src="img/people/jon-saad-falcon.png" alt="Jon Saad-Falcon" class="person-photo">
-                    <div class="person-name">Jon Saad-Falcon</div>
-                    <div class="person-role">PhD Student</div>
-                </a>
-                <a href="https://www.linkedin.com/in/avanika-narayan-a35a02a3/" class="person-card">
-                    <img src="img/people/avanika-narayan.jpg" alt="Avanika Narayan" class="person-photo">
-                    <div class="person-name">Avanika Narayan</div>
-                    <div class="person-role">PhD Student</div>
-                </a>
-            </div>
-
-            <h3>Master's Students</h3>
-            <div class="people-grid">
-                <a href="https://www.herumbshandilya.com/" class="person-card">
-                    <img src="img/people/herumb-shandilya.jpg" alt="Herumb Shandilya" class="person-photo">
-                    <div class="person-name">Herumb Shandilya</div>
-                    <div class="person-role">Master's Student</div>
-                </a>
-                <a href="https://www.google.com/search?q=matthew+hart+apple" class="person-card">
-                    <div class="person-initials">MH</div>
-                    <div class="person-name">Matthew Hart</div>
-                    <div class="person-role">Master's Student</div>
-                </a>
-            </div>
-
-            <h3>Undergraduates</h3>
-            <div class="people-grid">
-                <a href="https://www.linkedin.com/in/akenginorhun/" class="person-card">
-                    <img src="img/people/orhun-akengin.jpeg" alt="Hakki Orhun Akengin" class="person-photo">
-                    <div class="person-name">Hakki Orhun Akengin</div>
-                    <div class="person-role">Undergraduate</div>
-                </a>
-                <a href="https://www.linkedin.com/in/tanvir-bhathal/" class="person-card">
-                    <img src="img/people/tanvir-bhathal.jpg" alt="Tanvir Bhathal" class="person-photo">
-                    <div class="person-name">Tanvir Bhathal</div>
-                    <div class="person-role">Undergraduate</div>
-                </a>
-                <a href="https://www.gabrielbo.com/" class="person-card">
-                    <img src="img/people/gabriel-bo.jpg" alt="Gabriel Bo" class="person-photo">
-                    <div class="person-name">Gabriel Bo</div>
-                    <div class="person-role">Undergraduate</div>
-                </a>
-                <a href="https://www.linkedin.com/in/adrian-gamarra/" class="person-card">
-                    <img src="img/people/adrian-gamarra.jpg" alt="Adrian Gamarra Lafuente" class="person-photo">
-                    <div class="person-name">Adrian Gamarra Lafuente</div>
-                    <div class="person-role">Undergraduate</div>
-                </a>
-                <a href="https://x.com/wesgriffin07" class="person-card">
-                    <img src="img/people/wes_griffin.jpg" alt="J. Wes Griffin" class="person-photo">
-                    <div class="person-name">J. Wes Griffin</div>
-                    <div class="person-role">Undergraduate</div>
-                </a>
-                <a href="https://www.linkedin.com/in/grmanihani/" class="person-card">
-                    <img src="img/people/robby-manihani.jpg" alt="Robby Manihani" class="person-photo">
-                    <div class="person-name">Robby Manihani</div>
-                    <div class="person-role">Undergraduate</div>
-                </a>
-                <a href="https://www.linkedin.com/in/andrewparkk1/" class="person-card">
-                    <img src="img/people/andrew-park.jpg" alt="Andrew Park" class="person-photo">
-                    <div class="person-name">Andrew Park</div>
-                    <div class="person-role">Undergraduate</div>
-                </a>
-            </div>
-
-            <h3>Industry Collaborators</h3>
-            <div class="people-grid">
-                <a href="https://jdunnmon.github.io/" class="person-card">
-                    <img src="img/people/jared-dunnmon.jpg" alt="Jared Dunnmon" class="person-photo">
-                    <div class="person-name">Jared Dunnmon</div>
-                    <div class="person-role">Industry Collaborator</div>
-                </a>
-                <a href="https://www.linkedin.com/in/chuan-li-a9474b63/" class="person-card">
-                    <img src="img/people/chuan-li.jpg" alt="Chuan Li" class="person-photo">
-                    <div class="person-name">Chuan Li</div>
-                    <div class="person-role">Lambda Labs</div>
-                </a>
-                <a href="https://www.linkedin.com/in/caia-costello-5b4064216/" class="person-card">
-                    <img src="img/people/caia-costello.jpg" alt="Caia Costello" class="person-photo">
-                    <div class="person-name">Caia Costello</div>
-                    <div class="person-role">Lambda Labs</div>
-                </a>
-            </div>
-
-            <div class="panel-footer">
-                <span>© Avanika Narayan & Jon Saad-Falcon</span>
-                <span>Stanford University, CA</span>
-            </div>
-        </div>
-
-        <!-- Sponsors Panel -->
-        <div id="sponsors" class="panel">
-            <div class="section-label">07</div>
-            <h2>Sponsors & Labs</h2>
-
-            <h3>Sponsors</h3>
-            <div class="sponsor-grid">
-                <a href="https://www.laude.org/" class="sponsor-card">
-                    <img src="img/sponsors/laude.svg" alt="Laude Institute" class="sponsor-logo sponsor-logo-dark">
-                    <div class="sponsor-name">Laude Institute</div>
-                </a>
-                <a href="https://datascience.stanford.edu/marlowe" class="sponsor-card">
-                    <img src="img/sponsors/marlowe.png" alt="Stanford Marlowe" class="sponsor-logo">
-                    <div class="sponsor-name">Stanford Marlowe</div>
-                </a>
-                <a href="https://cloud.google.com/" class="sponsor-card">
-                    <img src="img/sponsors/google-cloud.png" alt="Google Cloud" class="sponsor-logo">
-                    <div class="sponsor-name">Google Cloud Platform</div>
-                </a>
-                <a href="https://lambda.ai/" class="sponsor-card">
-                    <img src="img/sponsors/lambda.svg" alt="Lambda" class="sponsor-logo">
-                    <div class="sponsor-name">Lambda Labs</div>
-                </a>
-                <a href="https://ollama.com/" class="sponsor-card">
-                    <img src="img/sponsors/ollama.svg" alt="Ollama" class="sponsor-logo sponsor-logo-dark">
-                    <div class="sponsor-name">Ollama</div>
-                </a>
-                <a href="https://research.ibm.com/" class="sponsor-card">
-                    <img src="img/sponsors/ibm.svg" alt="IBM Research" class="sponsor-logo">
-                    <div class="sponsor-name">IBM Research</div>
-                </a>
-                <a href="https://hai.stanford.edu/" class="sponsor-card">
-                    <img src="img/sponsors/hai.svg" alt="Stanford HAI" class="sponsor-logo sponsor-logo-dark">
-                    <div class="sponsor-name">Stanford HAI</div>
-                </a>
-                <a href="https://snorkel.ai/" class="sponsor-card">
-                    <img src="img/sponsors/snorkel.svg" alt="Snorkel AI" class="sponsor-logo">
-                    <div class="sponsor-name">Snorkel AI</div>
-                </a>
-            </div>
-
-            <h3>Labs</h3>
-            <div class="sponsor-grid">
-                <a href="https://hazyresearch.stanford.edu/" class="sponsor-card">
-                    <div class="sponsor-name">Hazy Research</div>
-                    <div class="sponsor-desc">Stanford University</div>
-                </a>
-                <a href="https://scalingintelligence.stanford.edu/" class="sponsor-card">
-                    <div class="sponsor-name">Scaling Intelligence Lab</div>
-                    <div class="sponsor-desc">Stanford University</div>
-                </a>
-                <a href="https://ai.stanford.edu/" class="sponsor-card">
-                    <div class="sponsor-name">Stanford SAIL</div>
-                    <div class="sponsor-desc">Stanford University</div>
-                </a>
-                <a href="https://nlp.stanford.edu/" class="sponsor-card">
-                    <div class="sponsor-name">Stanford NLP</div>
-                    <div class="sponsor-desc">Stanford University</div>
-                </a>
-            </div>
-
-            <div class="panel-footer">
-                <span>© Avanika Narayan & Jon Saad-Falcon</span>
-                <span>Stanford University, CA</span>
-            </div>
-        </div>
-        <!-- Blog Panel -->
-        <div id="blog" class="panel">
+        <div id="talks" class="panel" role="region" aria-labelledby="heading-talks">
             <div class="section-label">04</div>
-            <h2>Blog</h2>
+            <h2 id="heading-talks" tabindex="-1">Talks &amp; Media</h2>
+            <p class="panel-intro">Talks, interviews, and coverage from across the research program.</p>
+            <h3>Talks &amp; webinars</h3>
+            <ol class="event-list">
+                <li class="event-item" data-talk="SLICE Lab, UC Berkeley">
+                    <div class="event-meta"><time datetime="2026-09">September 2026</time><span>SLICE Lab, UC Berkeley</span></div>
+                    <h4 class="event-title">Intelligence per Watt: Measuring Intelligence Efficiency of Local AI</h4>
+                    <p>Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-talk="AMD Advancing AI Day">
+                    <div class="event-meta"><time datetime="2026-07-22">July 22, 2026</time><span>AMD Advancing AI Day</span></div>
+                    <h4 class="event-title">OpenJarvis: Personal AI, On Personal Devices</h4>
+                    <p>Jon Saad-Falcon and Avanika Narayan</p>
+                    <div class="event-links"><a href="#openjarvis">OpenJarvis →</a> <a href="https://www.amd.com/en/corporate/events/advancing-ai/sessions-catalog/openjarvis--personal-ai-on-personal-devices.html">Event details →</a></div>
+                </li>
+                <li class="event-item" data-talk="Y Combinator Paper Club">
+                    <div class="event-meta"><time datetime="2026-07">July 2026</time><span>Y Combinator Paper Club</span></div>
+                    <h4 class="event-title">OpenJarvis: Personal AI, On Personal Devices</h4>
+                    <p>Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="#openjarvis">OpenJarvis →</a> <a href="https://www.youtube.com/watch?v=n9xKblqyQ28&amp;t=2250s">Watch from 37:30 →</a></div>
+                </li>
+                <li class="event-item" data-talk="Two Sigma">
+                    <div class="event-meta"><time datetime="2026-02">February 2026</time><span>Two Sigma</span></div>
+                    <h4 class="event-title">Intelligence per Watt: Measuring Intelligence Efficiency of Local AI</h4>
+                    <p>Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-talk="Stanford EE292P: Atoms, Bits, and National Interest">
+                    <div class="event-meta"><time datetime="2026-02">February 2026</time><span>Stanford EE292P: Atoms, Bits, and National Interest</span></div>
+                    <h4 class="event-title">Intelligence per Watt: Measuring Intelligence Efficiency of Local AI</h4>
+                    <p>Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-talk="MBZUAI Speech and NLP Symposium">
+                    <div class="event-meta"><time datetime="2026-01">January 2026</time><span>MBZUAI Speech and NLP Symposium</span></div>
+                    <h4 class="event-title">Intelligence per Watt: Measuring Intelligence Efficiency of Local AI</h4>
+                    <p>Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-talk="SambaNova × Stanford · ChipChats">
+                    <div class="event-meta"><time datetime="2026-01">January 2026</time><span>SambaNova × Stanford · ChipChats</span></div>
+                    <h4 class="event-title">Measure What Matters: Intelligence per Watt &amp; Joule</h4>
+                    <p>Avanika Narayan and Jon Saad-Falcon, with Vasanth Mohan</p>
+                    <div class="event-links"><a href="#intelligence-per-watt">Intelligence per Watt →</a> <a href="https://sambanova.ai/videos/measure-intelligence-per-watt-joule">Watch webinar →</a></div>
+                </li>
+                <li class="event-item" data-talk="MLOps Community · Reading group">
+                    <div class="event-meta"><time datetime="2025-12-01">Recording published December 1, 2025</time><span>MLOps Community · Reading group</span></div>
+                    <h4 class="event-title">Shrinking the Generation-Verification Gap with Weak Verifiers</h4>
+                    <p>Jon Saad-Falcon, with Jimin (Anna) Yoon and Arthur Coleman</p>
+                    <div class="event-links"><a href="#weaver">Weaver →</a> <a href="https://home.mlops.community/public/videos/shrinking-the-generation-verification-gap-with-weak-verifiers">Watch reading group →</a></div>
+                </li>
+                <li class="event-item" data-talk="Measuring Intelligence Summit at PyTorch Conference">
+                    <div class="event-meta"><time datetime="2025-10">October 2025</time><span>Measuring Intelligence Summit at PyTorch Conference</span></div>
+                    <h4 class="event-title">Weaver: Shrinking the Generation-Verification Gap with Weak Verifiers</h4>
+                    <p>Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="#weaver">Weaver →</a></div>
+                </li>
+                <li class="event-item" data-talk="Together AI">
+                    <div class="event-meta"><time datetime="2025-07">July 2025</time><span>Together AI</span></div>
+                    <h4 class="event-title">Weaver: Shrinking the Generation-Verification Gap with Weak Verifiers</h4>
+                    <p>Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="#weaver">Weaver →</a></div>
+                </li>
+                <li class="event-item" data-talk="LLMs Meet Data Processing Workshop, UC Berkeley">
+                    <div class="event-meta"><time datetime="2025-05">May 2025</time><span>LLMs Meet Data Processing Workshop, UC Berkeley</span></div>
+                    <h4 class="event-title">Archon: An Architecture Search Framework for Inference-Time Techniques</h4>
+                    <p>Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="#archon">Archon →</a></div>
+                </li>
+                <li class="event-item" data-talk="Databricks">
+                    <div class="event-meta"><time datetime="2025-02">February 2025</time><span>Databricks</span></div>
+                    <h4 class="event-title">Archon: An Architecture Search Framework for Inference-Time Techniques</h4>
+                    <p>Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="#archon">Archon →</a></div>
+                </li>
+                <li class="event-item" data-talk="Contextual AI">
+                    <div class="event-meta"><time datetime="2024-10">October 2024</time><span>Contextual AI</span></div>
+                    <h4 class="event-title">Archon: An Architecture Search Framework for Inference-Time Techniques</h4>
+                    <p>Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="#archon">Archon →</a></div>
+                </li>
+            </ol>
+            <h3>Interviews &amp; coverage</h3>
+            <ol class="event-list">
+                <li class="event-item" data-media="Financial Times">
+                    <div class="event-meta"><time datetime="2026-09">September 2026</time><span>Financial Times · Article</span></div>
+                    <h4 class="event-title">How big is the open-model threat to AI hyperscalers?</h4>
+                    <div class="event-links"><a href="https://www.ft.com/content/48588acb-8026-4c8e-aac7-8b5588294dbf">Read →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-media="The National Interest">
+                    <div class="event-meta"><time datetime="2026-08-25">August 25, 2026</time><span>The National Interest · Article</span></div>
+                    <h4 class="event-title">The Grid Doesn’t Care How Smart Your Model Is</h4>
+                    <div class="event-links"><a href="https://nationalinterest.org/blog/energy-world/the-grid-doesnt-care-how-smart-your-model-is">Read →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-media="Tomasz Tunguz">
+                    <div class="event-meta"><time datetime="2026-08-21">August 21, 2026</time><span>Tomasz Tunguz · Commentary</span></div>
+                    <h4 class="event-title">Mainframes became personal. So will your data center.</h4>
+                    <div class="event-links"><a href="https://tomtunguz.com/intelligence-per-watt">Read →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-media="Foundation Capital">
+                    <div class="event-meta"><time datetime="2026-08-19">August 19, 2026</time><span>Foundation Capital · Essay</span></div>
+                    <h4 class="event-title">Right-Sizing Your Intelligence Spend</h4>
+                    <p>Jaya Gupta, Avanika Narayan, and Jon Saad-Falcon</p>
+                    <div class="event-links"><a href="https://www.linkedin.com/pulse/right-sizing-your-intelligence-spend-jaya-gupta-7ngre">Read →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-media="Foundation Capital">
+                    <div class="event-meta"><time datetime="2026-07-29">July 29, 2026</time><span>Foundation Capital · Podcast</span></div>
+                    <h4 class="event-title">Maximizing intelligence per watt</h4>
+                    <p>Avanika Narayan and Jon Saad-Falcon, with Jaya Gupta</p>
+                    <div class="event-links"><a href="https://www.youtube.com/watch?v=TLvG18QQp0I">Watch →</a> <a href="https://foundationcapital.com/ideas/maximizing-intelligence-per-watt-avanika-narayan-jon-saad-falcon-stanford-ai-cs-ph.d.s">Episode &amp; transcript →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-media="Laude Institute">
+                    <div class="event-meta"><time datetime="2026-06">June 2026</time><span>Laude Institute · Research support</span></div>
+                    <h4 class="event-title">Slingshots // Three: Our Third Grant Cohort</h4>
+                    <div class="event-links"><a href="https://www.laude.org/updates/slingshots-three">Read →</a> <a href="#openjarvis">OpenJarvis →</a></div>
+                </li>
+                <li class="event-item" data-media="Laude Institute">
+                    <div class="event-meta"><time datetime="2026-02-26">February 26, 2026</time><span>Laude Institute · Research support</span></div>
+                    <h4 class="event-title">Slingshots // Two: Our Second Grant Cohort</h4>
+                    <div class="event-links"><a href="https://www.laude.org/updates/slingshots-two">Read →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-media="Embedl">
+                    <div class="event-meta"><time datetime="2025-11-28">November 28, 2025</time><span>Embedl · Research commentary</span></div>
+                    <h4 class="event-title">Intelligence per Watt: Edge versus Cloud</h4>
+                    <div class="event-links"><a href="https://embedl.com/blog/intelligence-per-watt-edge-versus-cloud">Read →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-media="Semiconductor Engineering">
+                    <div class="event-meta"><time datetime="2025-11-18">November 18, 2025</time><span>Semiconductor Engineering · Paper coverage</span></div>
+                    <h4 class="event-title">Intelligence Per Watt: Measuring Local Inference Viability, Studying 20+ Models, 8 HW Accelerators (Stanford Univ.)</h4>
+                    <div class="event-links"><a href="https://semiengineering.com/intelligence-per-watt-measuring-local-inference-viability-studying-20-models-8-hw-accelerators-stanford-univ/">Read →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-media="IBM Research">
+                    <div class="event-meta"><time datetime="2025-11-12">November 12, 2025</time><span>IBM Research · Research coverage</span></div>
+                    <h4 class="event-title">The future of AI is in your hands</h4>
+                    <div class="event-links"><a href="https://research.ibm.com/blog/small-models-hazy-research-granite">Read →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-media="SambaNova Systems">
+                    <div class="event-meta"><time datetime="2025-11-12">November 12, 2025</time><span>SambaNova Systems · Research commentary</span></div>
+                    <h4 class="event-title">Intelligence per Joule: The New Metric for True AI Value and Efficiency</h4>
+                    <div class="event-links"><a href="https://sambanova.ai/blog/best-intelligence-per-joule">Read →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+                <li class="event-item" data-media="Snorkel AI">
+                    <div class="event-meta"><time datetime="2025-11-12">November 12, 2025</time><span>Snorkel AI · Research commentary</span></div>
+                    <h4 class="event-title">Intelligence per watt: A new metric for AI’s future</h4>
+                    <div class="event-links"><a href="https://snorkel.ai/blog/intelligence-per-watt-a-new-metric-for-ais-future">Read →</a> <a href="#intelligence-per-watt">Intelligence per Watt →</a></div>
+                </li>
+            </ol>
+            <h3>Industry perspectives</h3>
+            <p>Broader discussions of AI efficiency, hardware, and deployment.</p>
+            <ol class="event-list">
+                <li class="event-item" data-media="Computing Research Association">
+                    <div class="event-meta"><time datetime="2026-04-27">April 27, 2026</time><span>Computing Research Association · Industry discussion</span></div>
+                    <h4 class="event-title">How AI Will Reshape Computer Systems by 2035: A Jeffersonian Dinner in San Francisco about Our 10,000x Future</h4>
+                    <div class="event-links"><a href="https://cra.org/industry/2026/04/27/how-ai-will-reshape-computer-systems-by-2035-a-jeffersonian-dinner-in-san-francisco-about-our-10000x-future/">Read →</a></div>
+                </li>
+                <li class="event-item" data-media="IT Brief Asia">
+                    <div class="event-meta"><time datetime="2026-04-24">April 24, 2026</time><span>IT Brief Asia · Industry news</span></div>
+                    <h4 class="event-title">EDB pitches intelligence per watt for AI data layer</h4>
+                    <div class="event-links"><a href="https://itbrief.asia/story/edb-pitches-intelligence-per-watt-for-ai-data-layer">Read →</a></div>
+                </li>
+                <li class="event-item" data-media="Reiner Pope · MatX">
+                    <div class="event-meta"><time datetime="2026-04">April 2026</time><span>Reiner Pope · MatX · Industry conversation</span></div>
+                    <h4 class="event-title">Intelligence per Picojoule</h4>
+                    <p>Reiner Pope, with Clive Chan and Dylan Patel</p>
+                    <div class="event-links"><a href="https://x.com/reinerpope/status/2046260624200778038">Read →</a></div>
+                </li>
+                <li class="event-item" data-media="Alex Cheema · EXO Labs">
+                    <div class="event-meta"><time datetime="2026-04">April 2026</time><span>Alex Cheema · EXO Labs · Industry commentary</span></div>
+                    <h4 class="event-title">Intelligence per Joule increased 18x in 16 months</h4>
+                    <div class="event-links"><a href="https://x.com/alexocheema/status/2041924875816751197">Read →</a></div>
+                </li>
+                <li class="event-item" data-media="NVIDIA Developer Blog">
+                    <div class="event-meta"><time datetime="2026-03-25">March 25, 2026</time><span>NVIDIA Developer Blog · Industry perspective</span></div>
+                    <h4 class="event-title">Scaling Token Factory Revenue and AI Efficiency by Maximizing Performance per Watt</h4>
+                    <div class="event-links"><a href="https://developer.nvidia.com/blog/scaling-token-factory-revenue-and-ai-efficiency-by-maximizing-performance-per-watt">Read →</a></div>
+                </li>
+                <li class="event-item" data-media="Gartner">
+                    <div class="event-meta"><time datetime="2026-01-26">January 26, 2026</time><span>Gartner · Industry analysis</span></div>
+                    <h4 class="event-title">First Take: Microsoft’s Maia 200 Rewrites the Rules of Agent Intelligence per Watt</h4>
+                    <div class="event-links"><a href="https://www.gartner.com/en/documents/7367330">Read →</a></div>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Blog -->
+        <div id="blog" class="panel" role="region" aria-labelledby="heading-blog">
+            <div class="section-label">05</div>
+            <h2 id="heading-blog" tabindex="-1">Blog</h2>
 
             <!-- Blog Listing -->
             <div class="blog-listing" id="blog-listing">
@@ -1446,12 +1458,11 @@
                     <div class="blog-card-authors">Jon Saad-Falcon, Avanika Narayan</div>
                     <div class="blog-card-summary">A look back at two years of research on local AI — tracing the path from Minions through to OpenJarvis, the lessons learned along the way, and where on-device intelligence is headed next.</div>
                 </a>
-                <div class="blog-card" onclick="showBlogPost('local-vs-cloud')">
+                <a class="blog-card" href="#post-local-vs-cloud">
                     <div class="blog-date">March 17, 2026</div>
                     <div class="blog-card-title">How Close Are Local Models to the Cloud? An OpenJarvis Benchmark Study</div>
                     <div class="blog-card-authors">Avanika Narayan, Jon Saad-Falcon</div>
-                    <div class="blog-card-summary">We used OpenJarvis to run a head-to-head evaluation of 8 local open-source models against 6 frontier cloud models across 5 representative use-case benchmarks. The headline: local models rank within the top 3 overall.</div>
-                </div>
+                    <div class="blog-card-summary">We used OpenJarvis to run a head-to-head evaluation of 8 local open-source models against 6 frontier cloud models across 5 representative use-case benchmarks. The headline: local models rank within the top 3 overall.</div></a>
                 <a href="https://scalingintelligence.stanford.edu/blogs/openjarvis/" target="_blank" rel="noopener" class="blog-card" style="display:block;">
                     <div class="blog-date">March 12, 2026 &middot; Scaling Intelligence Lab ↗</div>
                     <div class="blog-card-title">OpenJarvis: Personal AI, On Personal Devices</div>
@@ -1468,7 +1479,7 @@
 
             <!-- Blog Post: Local vs Cloud -->
             <div class="blog-post-view" id="post-local-vs-cloud">
-                <button class="blog-back-btn" onclick="hideBlogPost()">&larr; Back to all posts</button>
+                <a class="blog-back-btn" href="#blog">&larr; Back to all posts</a>
 
                 <div class="blog-post-header">
                     <div class="blog-post-title">How Close Are Local Models to the Cloud? An OpenJarvis Benchmark Study</div>
@@ -1476,7 +1487,7 @@
                 </div>
 
                 <div class="blog-tldr">
-                    <strong>TL;DR</strong> &mdash; We used <a href="https://github.com/HazyResearch/OpenJarvis">OpenJarvis</a> to run a head-to-head evaluation of <strong>8 local open-source models</strong> against <strong>6 frontier cloud models</strong> across 5 representative use-case benchmarks. The headline: <strong>local models rank within the top 3 overall</strong>, with the best local model (Qwen3.5:122B-A10B, 0.840 avg accuracy) matching or exceeding frontier cloud models like Claude Opus 4.6 and GPT-5.4. When you factor in that local inference costs <strong>$0</strong> in API fees (you already own the hardware), the picture starts to get very interesting.
+                    <strong>TL;DR</strong> &mdash; We used <a href="https://github.com/open-jarvis/OpenJarvis">OpenJarvis</a> to run a head-to-head evaluation of <strong>8 local open-source models</strong> against <strong>6 frontier cloud models</strong> across 5 representative use-case benchmarks. The headline: <strong>local models rank within the top 3 overall</strong>, with the best local model (Qwen3.5:122B-A10B, 0.840 avg accuracy) matching or exceeding frontier cloud models like Claude Opus 4.6 and GPT-5.4. When you factor in that local inference costs <strong>$0</strong> in API fees (you already own the hardware), the picture starts to get very interesting.
                 </div>
 
                 <h3>The Eval Setup</h3>
@@ -1651,7 +1662,7 @@
                 </ol>
 
                 <div class="callout">
-                    <strong>OpenJarvis is open source.</strong> Check it out at <a href="https://github.com/HazyResearch/OpenJarvis">github.com/HazyResearch/OpenJarvis</a>.
+                    <strong>OpenJarvis is open source.</strong> Check it out at <a href="https://github.com/open-jarvis/OpenJarvis">github.com/HazyResearch/OpenJarvis</a>.
                 </div>
             </div>
 
@@ -1660,44 +1671,391 @@
                 <span>Stanford University, CA</span>
             </div>
         </div>
+
+        <!-- Related Panel -->
+        <div id="related" class="panel" role="region" aria-labelledby="heading-related">
+            <div class="section-label">06</div>
+            <h2 id="heading-related" tabindex="-1">Related Works</h2>
+            <p style="margin-bottom: 40px;">A collection of resources that inform and connect to Intelligence Per Watt research.</p>
+
+            <div class="related-columns">
+                <div class="related-section">
+                    <div class="related-title">Algorithmic Progress & Efficiency Measurement</div>
+                    <ul class="related-list">
+                        <li><a href="https://arxiv.org/abs/2311.06602">Algorithmic Progress in Language Models</a></li>
+                        <li><a href="https://www.lesswrong.com/posts/ssNSCaug5p3xnNDSd/how-fast-is-algorithmic-progress-in-ai-inference">How Fast is Algorithmic Progress in AI Inference?</a></li>
+                        <li><a href="https://epoch.ai/data-insights/llm-inference-price-trends">LLM Inference Price Trends (Epoch AI)</a></li>
+                        <li><a href="https://www.emergentmind.com/topics/compute-equivalent-gain-ceg-accounting">Compute Equivalent Gain (CEG) Accounting</a></li>
+                        <li><a href="https://arxiv.org/abs/2512.04123">Inference Efficiency Analysis</a></li>
+                        <li><a href="https://arxiv.org/pdf/2511.21622">Training Compute-Optimal Models</a></li>
+                    </ul>
+                </div>
+
+                <div class="related-section">
+                    <div class="related-title">Energy Measurement & Benchmarking</div>
+                    <ul class="related-list">
+                        <li><a href="https://leonardo-energy.pl/wp-content/uploads/2018/03/Green_Grid_Metrics.pdf">Green Grid Metrics</a></li>
+                        <li><a href="https://ml.energy/zeus/">Zeus: ML Energy Measurement</a></li>
+                        <li><a href="https://huggingface.github.io/AIEnergyScore/">AI Energy Score (Hugging Face)</a></li>
+                        <li><a href="https://arxiv.org/pdf/2512.03024">Energy Considerations for LLM Inference</a></li>
+                        <li><a href="https://github.com/mlcommons/inference">MLCommons Inference Benchmark</a></li>
+                        <li><a href="https://github.com/mlcommons/inference_policies">MLCommons Inference Policies</a></li>
+                        <li><a href="https://arxiv.org/abs/2408.00741">LLM Energy Measurement</a></li>
+                        <li><a href="https://colab.research.google.com/github/ml-energy/tutorials/blob/master/neurips25/resources/measuring_energy.ipynb">ML Energy Measurement Tutorial</a></li>
+                    </ul>
+                </div>
+
+                <div class="related-section">
+                    <div class="related-title">Economic Impact of AI</div>
+                    <ul class="related-list">
+                        <li><a href="https://economics.mit.edu/sites/default/files/2024-04/The%20Simple%20Macroeconomics%20of%20AI.pdf">The Simple Macroeconomics of AI (Acemoglu)</a></li>
+                        <li><a href="https://windowsontheory.org/2025/11/04/thoughts-by-a-non-economist-on-ai-and-economics/">Thoughts on AI and Economics (Boaz Barak)</a></li>
+                        <li><a href="https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic">How AI is Transforming Work at Anthropic</a></li>
+                        <li><a href="https://www.remotelabor.ai/">Remote Labor AI</a></li>
+                        <li><a href="https://andreyfradkin.com/assets/LLM_Demand_12_12_2025.pdf">LLM Labor Market Demand Analysis</a></li>
+                    </ul>
+                </div>
+
+                <div class="related-section">
+                    <div class="related-title">Benchmarks & Evaluation</div>
+                    <ul class="related-list">
+                        <li><a href="https://huggingface.co/datasets/openai/gdpval/viewer/default/train">GDPVal Dataset</a></li>
+                        <li><a href="https://leaderboard.snorkel.ai/">Snorkel AI Leaderboard</a></li>
+                        <li><a href="https://www.kaggle.com/benchmarks/ibm-research/enterprise-ops">IBM Enterprise Ops Benchmark</a></li>
+                        <li><a href="https://arxiv.org/abs/2505.06371">APEX Benchmark</a></li>
+                    </ul>
+                </div>
+
+                <div class="related-section">
+                    <div class="related-title">Inference Systems & Edge Computing</div>
+                    <ul class="related-list">
+                        <li><a href="https://www.usenix.org/conference/atc21/presentation/romero">INFaaS: Automated Model-less Inference</a></li>
+                        <li><a href="https://iceberg.mit.edu/">MIT Iceberg</a></li>
+                        <li><a href="https://www.cisco.com/site/us/en/products/computing/unified-edge/index.html">Cisco Unified Edge Computing</a></li>
+                        <li><a href="https://github.com/ulab-uiuc/LLMRouter">LLM Router</a></li>
+                        <li><a href="https://arxiv.org/abs/2402.16844">Efficient Inference Routing</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <span>© Avanika Narayan & Jon Saad-Falcon </span>
+                <span>Stanford University, CA</span>
+            </div>
+        </div>
+
+        <!-- People Panel -->
+        <div id="people" class="panel" role="region" aria-labelledby="heading-people">
+            <div class="section-label">07</div>
+            <h2 id="heading-people" tabindex="-1">People</h2>
+
+            <h3>Principal Investigators</h3>
+            <div class="people-grid">
+                <a href="https://cs.stanford.edu/~chrismre/" class="person-card">
+                    <img src="img/people/christopher-re.jpg" alt="Christopher Ré" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Christopher Ré</div>
+                    <div class="person-role">Principal Investigator</div>
+                </a>
+                <a href="https://www.azaliamirhoseini.com/" class="person-card">
+                    <img src="img/people/azalia-mirhoseini.jpg" alt="Azalia Mirhoseini" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Azalia Mirhoseini</div>
+                    <div class="person-role">Principal Investigator</div>
+                </a>
+                <a href="https://hennessy.stanford.edu/" class="person-card">
+                    <img src="img/people/john-hennessy.jpg" alt="John Hennessy" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">John Hennessy</div>
+                    <div class="person-role">Principal Investigator</div>
+                </a>
+            </div>
+
+            <h3>PhD Students</h3>
+            <div class="people-grid">
+                <a href="https://jonsaadfalcon.com/" class="person-card">
+                    <img src="img/people/jon-saad-falcon.png" alt="Jon Saad-Falcon" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Jon Saad-Falcon</div>
+                    <div class="person-role">PhD Student</div>
+                </a>
+                <a href="https://www.linkedin.com/in/avanika-narayan-a35a02a3/" class="person-card">
+                    <img src="img/people/avanika-narayan.jpg" alt="Avanika Narayan" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Avanika Narayan</div>
+                    <div class="person-role">PhD Student</div>
+                </a>
+            <article class="person-card" data-person="Catherine Deng">
+    <img src="img/people/catherine-deng.jpg" alt="Catherine Deng" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+    <div class="person-name"><a href="https://profiles.stanford.edu/catherine-deng">Catherine Deng</a></div>
+    <div class="person-role">PhD Student</div>
+</article>
+            </div>
+
+            <h3>Master's Students</h3>
+            <div class="people-grid">
+                <a href="https://www.herumbshandilya.com/" class="person-card">
+                    <img src="img/people/herumb-shandilya.jpg" alt="Herumb Shandilya" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Herumb Shandilya</div>
+                    <div class="person-role">Master's Student</div>
+                </a>
+                <div class="person-card">
+                    <div class="person-initials">MH</div>
+                    <div class="person-name">Matthew Hart</div>
+                    <div class="person-role">Master's Student</div>
+                </div>
+            </div>
+
+            <h3>Undergraduates</h3>
+            <div class="people-grid">
+                <a href="https://www.linkedin.com/in/akenginorhun/" class="person-card">
+                    <img src="img/people/orhun-akengin.jpeg" alt="Hakki Orhun Akengin" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Hakki Orhun Akengin</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+                <a href="https://www.linkedin.com/in/tanvir-bhathal/" class="person-card">
+                    <img src="img/people/tanvir-bhathal.jpg" alt="Tanvir Bhathal" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Tanvir Bhathal</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+                <a href="https://www.gabrielbo.com/" class="person-card">
+                    <img src="img/people/gabriel-bo.jpg" alt="Gabriel Bo" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Gabriel Bo</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+                <a href="https://www.linkedin.com/in/adrian-gamarra/" class="person-card">
+                    <img src="img/people/adrian-gamarra.jpg" alt="Adrian Gamarra Lafuente" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Adrian Gamarra Lafuente</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+                <a href="https://x.com/wesgriffin07" class="person-card">
+                    <img src="img/people/wes_griffin.jpg" alt="J. Wes Griffin" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">J. Wes Griffin</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+                <a href="https://www.linkedin.com/in/grmanihani/" class="person-card">
+                    <img src="img/people/robby-manihani.jpg" alt="Robby Manihani" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Robby Manihani</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+                <a href="https://www.linkedin.com/in/andrewparkk1/" class="person-card">
+                    <img src="img/people/andrew-park.jpg" alt="Andrew Park" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Andrew Park</div>
+                    <div class="person-role">Undergraduate</div>
+                </a>
+            <article class="person-card" data-person="Ravenor Davion">
+    <img src="img/people/ravenor-davion.png" alt="Ravenor Davion" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+    <div class="person-name"><a href="https://www.ravenordavion.com/">Ravenor Davion</a></div>
+    <div class="person-role">Undergraduate</div>
+</article>
+            <article class="person-card" data-person="Amirreza Zeinali">
+    <img src="img/people/amirreza-zeinali.png" alt="Amirreza Zeinali" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+    <div class="person-name"><a href="https://profiles.stanford.edu/amirreza-zeinali">Amirreza Zeinali</a></div>
+    <div class="person-role">Undergraduate</div>
+</article>
+            <article class="person-card" data-person="Mersad Abbasi">
+    <img src="img/people/mersad-abbasi.jpg" alt="Mersad Abbasi" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+    <div class="person-name"><a href="https://surelymersad.github.io/">Mersad Abbasi</a></div>
+    <div class="person-role">Undergraduate</div>
+</article>
+            </div>
+
+            <h3>Industry Collaborators</h3>
+            <div class="people-grid">
+                <a href="https://jdunnmon.github.io/" class="person-card">
+                    <img src="img/people/jared-dunnmon.jpg" alt="Jared Dunnmon" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Jared Dunnmon</div>
+                    <div class="person-role">Industry Collaborator</div>
+                </a>
+                <a href="https://www.linkedin.com/in/chuan-li-a9474b63/" class="person-card">
+                    <img src="img/people/chuan-li.jpg" alt="Chuan Li" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Chuan Li</div>
+                    <div class="person-role">Industry Collaborator</div>
+                </a>
+                <a href="https://www.linkedin.com/in/caia-costello-5b4064216/" class="person-card">
+                    <img src="img/people/caia-costello.jpg" alt="Caia Costello" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+                    <div class="person-name">Caia Costello</div>
+                    <div class="person-role">Industry Collaborator</div>
+                </a>
+            </div>
+
+            <h3>Research Contributors</h3><div class="people-grid">
+<article class="person-card" data-person="Elliot Slusky">
+    <img src="img/people/elliot-slusky.jpg" alt="Elliot Slusky" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+    <div class="person-name"><a href="https://www.elliot.fun/">Elliot Slusky</a></div>
+    <div class="person-role">Research Assistant</div>
+</article>
+<article class="person-card" data-person="Jonathan S. Hartley">
+    <img src="img/people/jonathan-hartley.jpg" alt="Jonathan S. Hartley" class="person-photo" width="120" height="120" loading="lazy" decoding="async">
+    <div class="person-name"><a href="https://civicleadership.utexas.edu/people/jon-hartley/">Jonathan S. Hartley</a></div>
+    <div class="person-role">Assistant Professor</div>
+</article>
+</div>
+<div class="panel-footer">
+                <span>© Avanika Narayan & Jon Saad-Falcon</span>
+                <span>Stanford University, CA</span>
+            </div>
+        </div>
+
+        <!-- Sponsors Panel -->
+        <div id="sponsors" class="panel" role="region" aria-labelledby="heading-sponsors">
+            <div class="section-label">08</div>
+            <h2 id="heading-sponsors" tabindex="-1">Sponsors & Labs</h2>
+
+            <h3>Sponsors</h3>
+            <div class="sponsor-grid">
+                <a href="https://www.laude.org/" class="sponsor-card">
+                    <img src="img/sponsors/laude.svg" alt="Laude Institute" class="sponsor-logo sponsor-logo-dark">
+                    <div class="sponsor-name">Laude Institute</div>
+                </a>
+                <a href="https://datascience.stanford.edu/marlowe" class="sponsor-card">
+                    <img src="img/sponsors/marlowe.png" alt="Stanford Marlowe" class="sponsor-logo">
+                    <div class="sponsor-name">Stanford Marlowe</div>
+                </a>
+                <a href="https://cloud.google.com/" class="sponsor-card">
+                    <img src="img/sponsors/google-cloud.png" alt="Google Cloud" class="sponsor-logo">
+                    <div class="sponsor-name">Google Cloud Platform</div>
+                </a>
+                <a href="https://lambda.ai/" class="sponsor-card">
+                    <img src="img/sponsors/lambda.svg" alt="Lambda" class="sponsor-logo">
+                    <div class="sponsor-name">Lambda Labs</div>
+                </a>
+                <a href="https://ollama.com/" class="sponsor-card">
+                    <img src="img/sponsors/ollama.svg" alt="Ollama" class="sponsor-logo sponsor-logo-dark">
+                    <div class="sponsor-name">Ollama</div>
+                </a>
+                <a href="https://research.ibm.com/" class="sponsor-card">
+                    <img src="img/sponsors/ibm.svg" alt="IBM Research" class="sponsor-logo">
+                    <div class="sponsor-name">IBM Research</div>
+                </a>
+                <a href="https://hai.stanford.edu/" class="sponsor-card">
+                    <img src="img/sponsors/hai.svg" alt="Stanford HAI" class="sponsor-logo sponsor-logo-dark">
+                    <div class="sponsor-name">Stanford HAI</div>
+                </a>
+                <a href="https://snorkel.ai/" class="sponsor-card">
+                    <img src="img/sponsors/snorkel.svg" alt="Snorkel AI" class="sponsor-logo">
+                    <div class="sponsor-name">Snorkel AI</div>
+                </a>
+            </div>
+
+            <h3>Labs</h3>
+            <div class="sponsor-grid">
+                <a href="https://hazyresearch.stanford.edu/" class="sponsor-card">
+                    <div class="sponsor-name">Hazy Research</div>
+                    <div class="sponsor-desc">Stanford University</div>
+                </a>
+                <a href="https://scalingintelligence.stanford.edu/" class="sponsor-card">
+                    <div class="sponsor-name">Scaling Intelligence Lab</div>
+                    <div class="sponsor-desc">Stanford University</div>
+                </a>
+                <a href="https://ai.stanford.edu/" class="sponsor-card">
+                    <div class="sponsor-name">Stanford SAIL</div>
+                    <div class="sponsor-desc">Stanford University</div>
+                </a>
+                <a href="https://nlp.stanford.edu/" class="sponsor-card">
+                    <div class="sponsor-name">Stanford NLP</div>
+                    <div class="sponsor-desc">Stanford University</div>
+                </a>
+            </div>
+
+            <div class="panel-footer">
+                <span>© Avanika Narayan & Jon Saad-Falcon</span>
+                <span>Stanford University, CA</span>
+            </div>
+        </div>
     </main>
 </div>
 
 <script>
-    const tabs = document.querySelectorAll('.tab-btn');
-    const panels = document.querySelectorAll('.panel');
 
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // Update active tab
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+(() => {
+    const panels = [...document.querySelectorAll('.panel')];
+    const tabs = [...document.querySelectorAll('.tab-btn')];
+    const posts = [...document.querySelectorAll('.blog-post-view')];
+    const listing = document.getElementById('blog-listing');
+    const main = document.getElementById('main-content');
+    const sidebar = document.querySelector('.sidebar');
+    let scrollFrame;
 
-            // Update active panel
-            panels.forEach(p => p.classList.remove('active'));
-            document.getElementById(tab.dataset.tab).classList.add('active');
+    function resolveRoute(hash) {
+        let id;
+        try { id = decodeURIComponent(hash.replace(/^#/, '')); }
+        catch { id = ''; }
+        const target = document.getElementById(id);
+        const panel = target && target.closest('.panel');
+        return panel ? { panel, target } : { panel: panels[0], target: panels[0] };
+    }
 
-            // Reset blog view to listing when switching to blog tab
-            if (tab.dataset.tab === 'blog') {
-                hideBlogPost();
-            }
+    function updateNavOffset() {
+        const height = window.matchMedia('(max-width: 900px)').matches ? sidebar.offsetHeight : 0;
+        document.documentElement.style.setProperty('--nav-offset', `${height + 16}px`);
+    }
 
-            // Scroll main content to top
-            document.querySelector('.main').scrollTop = 0;
+    function renderRoute({ focus = false, scroll = true } = {}) {
+        const { panel, target } = resolveRoute(window.location.hash);
+        panels.forEach(item => {
+            const active = item === panel;
+            item.classList.toggle('active', active);
+            item.hidden = !active;
         });
+        tabs.forEach(tab => {
+            const active = tab.dataset.tab === panel.id;
+            tab.classList.toggle('active', active);
+            if (active) tab.setAttribute('aria-current', 'page');
+            else tab.removeAttribute('aria-current');
+        });
+        const post = target.closest('.blog-post-view');
+        posts.forEach(item => {
+            item.classList.toggle('active', item === post);
+            item.hidden = item !== post;
+        });
+        listing.hidden = !!post;
+        listing.classList.toggle('hidden', !!post);
+        const heading = target.querySelector('h2, h3, .blog-post-title') || target;
+        if (focus) {
+            heading.tabIndex = -1;
+            heading.focus({ preventScroll: true });
+        }
+        window.cancelAnimationFrame(scrollFrame);
+        if (scroll) {
+            scrollFrame = window.requestAnimationFrame(() => {
+                updateNavOffset();
+                const offset = window.matchMedia('(max-width: 900px)').matches ? sidebar.offsetHeight + 16 : 24;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+                const tab = tabs.find(item => item.dataset.tab === panel.id);
+                const nav = document.querySelector('.tabs');
+                if (window.matchMedia('(max-width: 900px)').matches && tab) {
+                    nav.scrollTo({ left: Math.max(0, tab.offsetLeft - 15), behavior: 'instant' });
+                }
+            });
+        }
+    }
+
+    document.addEventListener('click', event => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        const link = event.target.closest('a[href^="#"]');
+        if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+        const hash = link.getAttribute('href');
+        if (hash === '#main-content') {
+            event.preventDefault();
+            main.focus({ preventScroll: true });
+            main.scrollIntoView({ block: 'start' });
+            return;
+        }
+        const { target } = resolveRoute(hash);
+        // Unrecognized anchors retain the browser's ordinary link behavior.
+        if (!target || '#' + target.id !== hash) return;
+        event.preventDefault();
+        if (window.location.hash !== hash) window.history.pushState(null, '', hash);
+        renderRoute({ focus: true });
     });
 
-    function showBlogPost(postId) {
-        document.getElementById('blog-listing').classList.add('hidden');
-        document.getElementById('post-' + postId).classList.add('active');
-        document.querySelector('.main').scrollTop = 0;
-    }
-
-    function hideBlogPost() {
-        document.getElementById('blog-listing').classList.remove('hidden');
-        document.querySelectorAll('.blog-post-view').forEach(p => p.classList.remove('active'));
-        document.querySelector('.main').scrollTop = 0;
-    }
+    window.addEventListener('popstate', () => renderRoute());
+    window.addEventListener('hashchange', () => {
+        if (window.location.hash !== '#main-content') renderRoute();
+    });
+    window.addEventListener('resize', updateNavOffset);
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(updateNavOffset).observe(sidebar);
+    updateNavOffset();
+    renderRoute({ scroll: !!window.location.hash });
+    document.documentElement.classList.add('enhanced');
+})();
 </script>
 
 </body>
